@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>【展氏新解】一元弱酸與多元酸的微觀解離計算、近似條件檢驗與硫酸亞硫酸特權</title>
+  <title>【展氏新解】多元酸的解離計算與一元弱酸進階範例</title>
   <style>
     :root {
       --bg-board: #142c1f;
@@ -77,7 +77,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-wrap: pretty;
     }
 
     body.theme-paper { background-color: #e2e8f0; }
@@ -351,12 +350,13 @@
       margin-top: 4px;
     }
 
-    .mnemonic-box {
-      background: rgba(253, 224, 71, 0.12);
-      border: 1px dashed var(--chalk-yellow);
-      border-radius: 6px;
-      padding: 6px 8px;
-      margin-top: 5px;
+    .diagram-wrap {
+      width: 100%;
+      background: var(--diagram-bg);
+      border-radius: 8px;
+      padding: 6px 4px;
+      text-align: center;
+      border: 1px solid var(--card-border);
     }
 
     /* 延伸思維專區 */
@@ -666,7 +666,7 @@
   <div class="toolbar">
     <div class="toolbar-title-wrap">
       <span class="brand-tag">展氏新解</span>
-      <span class="toolbar-title">一元酸與多元酸的微觀解離計算、近似條件檢驗與硫酸亞硫酸特權</span>
+      <span class="toolbar-title">多元酸的解離計算與一元弱酸進階範例</span>
     </div>
     <div class="btn-group">
       <button class="btn btn-primary" onclick="openQuiz()">📝 進入隨堂測驗</button>
@@ -682,134 +682,164 @@
     <div class="board-header">
       <div class="main-title-wrap">
         <span class="brand-tag" style="font-size:0.95rem; padding:3px 8px;">展氏新解</span>
-        <h1>計算酸性解離度與多元酸微觀解析</h1>
-        <span class="badge-pill">一元弱酸近似檢驗 · 稀釋效應 Ka 推導 · 硫酸強酸特權 · 亞硫酸 Ka1/Ka2 級數突躍</span>
+        <h1>多元酸的解離計算與一元弱酸進階範例</h1>
+        <span class="badge-pill">一元酸計算 · 未知酸反推 · 硫酸兩段解離陷阱 · 亞硫酸分段近似</span>
       </div>
     </div>
 
     <!-- 主板書四大欄位 -->
     <div class="board-grid">
 
-      <!-- 第 1 欄：一元弱酸基本計算與 0.1 M 醋酸範例 -->
+      <!-- 第 1 欄：一元酸計算複習 (醋酸實例) -->
       <div class="col-card">
         <div class="col-title">
-          <span>一、一元弱酸與醋酸計算實戰</span>
-          <span style="font-size:0.75rem; opacity:0.8;">[H⁺] ＝ √(c·Ka) 與解離百分率</span>
+          <span>一、一元酸計算與醋酸實例</span>
+          <span style="font-size:0.75rem; opacity:0.8;">CH<sub>3</sub>COOH 解離特訓</span>
         </div>
 
         <div class="section-box">
-          <div class="sub-head">1. 核心公式與近似條件</div>
-          <div class="chem-eq-hero" style="font-size:0.82rem; color:var(--chalk-yellow); margin:4px 0;">
-            [H⁺] ＝ <span class="cloze" style="color:var(--chalk-yellow);">√(c · K<sub>a</sub>)</span>　｜　α ＝ <span class="cloze" style="color:var(--chalk-cyan);">√(K<sub>a</sub> / c)</span>
+          <div class="sub-head">1. 核心公式回顧</div>
+          <div style="font-size: 0.82rem; line-height: 1.6;">
+            • <b>氫離子濃度</b>：<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">[H<sup>+</sup>] ＝ √(c · <i>K</i><sub>a</sub>)</span><br>
+            • <b>解離度百分率</b>：<span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;">α% ＝ √(<i>K</i><sub>a</sub> / c) × 100%</span>
           </div>
-          <div style="font-size:0.81rem; line-height:1.55;">
-            • <b>範例設定</b>：設醋酸 CH₃COOH ⇌ CH₃COO⁻ ＋ H⁺，<span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;">K<sub>a</sub> ＝ 10⁻⁵</span>。<br>
-            • <b>① 0.1 M 醋酸之 [H⁺] 計算</b>：<br>
-            [H⁺] ＝ √(0.1 × 10⁻⁵) ＝ √10⁻⁶ ＝ <b>10⁻³ M</b>。<br>
-            👉 <b>檢驗近似合理性</b>：10⁻³ ≪ 0.1，故假設成立！<br>
-            • <b>② 解離百分率 α (%)</b>：<br>
-            α ＝ 10⁻³ / 0.1 ＝ 10⁻² ＝ <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">1%</span>。<br>
-            • <b>③ 0.1 M 醋酸 vs 鹽酸比較</b>：<br>
-            醋酸 [H⁺] ＝ 10⁻³ M；而同濃度強酸鹽酸 <span class="cloze" style="color:var(--chalk-red); font-weight:bold;">[H⁺] ＝ [HCl]₀ ＝ 0.1 M</span>。
+        </div>
+
+        <div class="reaction-box">
+          <div class="sub-head" style="color:var(--chalk-green); margin-bottom:4px;">
+            🍋 實例：0.1 M 醋酸 (CH<sub>3</sub>COOH, <i>K</i><sub>a</sub> = 10<sup>-5</sup>)
+          </div>
+          <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-yellow); margin:4px 0;">
+            CH<sub>3</sub>COOH ⇌ CH<sub>3</sub>COO<sup>-</sup> ＋ H<sup>+</sup>
+          </div>
+          <div style="font-size: 0.81rem; line-height: 1.6;">
+            ① <b>計算 [H<sup>+</sup>]</b>：<br>
+            [H<sup>+</sup>] ＝ √(0.1 × 10<sup>-5</sup>) ＝ √(10<sup>-6</sup>) ＝ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">10<sup>-3</sup> M</span>（&lt; 0.1 M，近似成立！）<br>
+            ② <b>計算解離度 α%</b>：<br>
+            α ＝ √(10<sup>-5</sup> / 0.1) ＝ √(10<sup>-4</sup>) ＝ 10<sup>-2</sup> ＝ <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">1%</span><br>
+            ③ <b>與同濃度強酸比較</b>：<br>
+            同濃度 0.1 M 強酸之 [H<sup>+</sup>] ＝ 0.1 M，而弱酸僅 10<sup>-3</sup> M（相差 100 倍），充分展現弱酸部分解離本質。
           </div>
         </div>
 
         <div class="note-pill" style="display:block; text-align:center;">
-          💡 展哥口訣：根號 c 乘 Ka 迅速估算，小於初始濃度 5% 即可安心省略！
+          💡 展哥口訣：弱酸 [H<sup>+</sup>] 採「氫乘」，解離度採「趴下C」！
         </div>
       </div>
 
-      <!-- 第 2 欄：未知酸反推 Ka 與濃度改變/稀釋效應 -->
+      <!-- 第 2 欄：未知弱酸反推與濃度改變影響 -->
       <div class="col-card">
         <div class="col-title">
-          <span>二、未知酸反推 Ka 與稀釋計算</span>
-          <span style="font-size:0.75rem; opacity:0.8;">pH 反推與 0.2 M 變動實戰</span>
+          <span>二、未知酸 <i>K</i><sub>a</sub> 與濃度推算</span>
+          <span style="font-size:0.75rem; opacity:0.8;">pH 反推與稀釋計算</span>
         </div>
 
         <div class="section-box">
-          <div class="sub-head">1. 已知 pH 反推酸解離常數 Ka</div>
-          <div style="font-size:0.81rem; line-height:1.6;">
-            • <b>題目條件</b>：某未知一元弱酸在 <span class="cloze" style="color:var(--chalk-cyan);">0.1 M</span> 時，测得 <span class="cloze" style="color:var(--chalk-yellow);">pH ＝ 2</span>。<br>
-            • <b>推導過程</b>：<br>
-            由 pH ＝ 2 知 [H⁺] ＝ 10⁻² M。<br>
-            代入公式：[H⁺]² ＝ c · K<sub>a</sub><br>
-            (10⁻²)² ＝ 0.1 · K<sub>a</sub><br>
-            10⁻⁴ ＝ 0.1 · K<sub>a</sub> ⟹ <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">K<sub>a</sub> ＝ 10⁻³</span>。<br>
-            • <b>2. 改成 0.2 M 濃度之 pH 計算</b>：<br>
-            若將此弱酸濃度調為 0.2 M：<br>
-            [H⁺] ＝ √(0.2 × 10⁻³) ＝ √(2 × 10⁻⁴) ＝ √2 × 10⁻² M。<br>
-            pH ＝ -log(√2 × 10⁻²) ＝ 2 - log√2 ＝ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">1.85</span>。
+          <div class="sub-head">1. 已知 pH 反推未知酸 <i>K</i><sub>a</sub></div>
+          <div style="font-size: 0.82rem; line-height: 1.6;">
+            • <b>題目</b>：某未知弱酸在 <span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;">0.1 M</span> 時，测得 <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">pH ＝ 2</span>，求此酸之 <i>K</i><sub>a</sub>。<br>
+            • <b>解析</b>：<br>
+            由 pH ＝ 2 可知 <span class="cloze" style="color:var(--chalk-green);">[H<sup>+</sup>] ＝ 10<sup>-2</sup> M</span>。<br>
+            代入公式：[H<sup>+</sup>] ＝ √(c · <i>K</i><sub>a</sub>)<br>
+            (10<sup>-2</sup>)<sup>2</sup> ＝ 0.1 × <i>K</i><sub>a</sub><br>
+            10<sup>-4</sup> ＝ 10<sup>-1</sup> · <i>K</i><sub>a</sub> ⇒ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;"><i>K</i><sub>a</sub> ＝ 10<sup>-3</sup></span>
+          </div>
+        </div>
+
+        <div class="reaction-box" style="border-left: 3px solid var(--chalk-orange);">
+          <div class="sub-head" style="color:var(--chalk-orange); margin-bottom:4px;">
+            📊 2. 濃度改變時的 pH 計算
+          </div>
+          <div style="font-size: 0.81rem; line-height: 1.6;">
+            • 若將上述 <i>K</i><sub>a</sub> ＝ 10<sup>-3</sup> 之弱酸改配製為 <span class="cloze" style="color:var(--chalk-cyan);">0.2 M</span>，其 [H<sup>+</sup>] 與 pH 為何？<br>
+            [H<sup>+</sup>] ＝ √(0.2 × 10<sup>-3</sup>) ＝ √(2 × 10<sup>-4</sup>) ＝ <span class="cloze" style="color:var(--chalk-yellow);">√2 × 10<sup>-2</sup> M</span><br>
+            pH ＝ -log(√2 × 10<sup>-2</sup>) ＝ 2 - ½log 2 ≈ <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">1.85</span>
           </div>
         </div>
 
         <div class="note-pill" style="display:block; text-align:center;">
-          📌 展哥重點：掌握 pH ＝ -log[H⁺]，利用平方關係即可瞬間破解未知酸 Ka！
+          📌 展哥重點：濃度加倍，[H<sup>+</sup>] 不會加倍，而是按根號倍數增加！
         </div>
       </div>
 
-      <!-- 第 3 欄：多元酸之王：硫酸的強酸特權與第二段 ICE 計算 -->
+      <!-- 第 3 欄：多元酸不只能解離一次（硫酸的計算陷阱） -->
       <div class="col-card">
         <div class="col-title">
-          <span>三、多元酸：硫酸的強酸特權</span>
-          <span style="font-size:0.75rem; opacity:0.8;">H₂SO₄ 第一段完全解離 vs Ka2</span>
+          <span>三、多元酸：硫酸的兩段解離陷阱</span>
+          <span style="font-size:0.75rem; opacity:0.8;">H<sub>2</sub>SO<sub>4</sub> 計算盲點突破</span>
         </div>
 
         <div class="section-box">
-          <div class="sub-head">1. 硫酸不只解離一次的微觀真相</div>
-          <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-red); margin:3px 0;">
-            H₂SO₄ ⟶ HSO₄⁻ ＋ H⁺ (K<sub>a1</sub> ＝ ∞)
-          </div>
-          <div style="font-size:0.8rem; line-height:1.5;">
-            • <b>第一段</b>：強酸完全解離 (K<sub>a1</sub> ＝ ∞)。1 M 硫酸瞬間提供 1 M 的 H⁺ 與 1 M 的 HSO₄⁻。<br>
-            • <b>第二段 (部分解離)</b>：
-            <div class="chem-eq-hero" style="font-size:0.76rem; color:var(--chalk-yellow); margin:2px 0;">
-              HSO₄⁻ ⇌ H⁺ ＋ SO₄²⁻ (K<sub>a2</sub> ＝ 10⁻²)
+          <div class="sub-head">1. 硫酸的分段解離特徵</div>
+          <div style="font-size: 0.81rem; line-height: 1.6;">
+            • <b>第 1 段解離（強酸）</b>：<br>
+            <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-yellow); margin:3px 0;">
+              H<sub>2</sub>SO<sub>4</sub> → HSO<sub>4</sub><sup>-</sup> ＋ H<sup>+</sup> , <i>K</i><sub>a1</sub> ＝ ∞
             </div>
-            • <b>ICE 表格精確推導 (1 M 硫酸)</b>：
-            <table class="role-table" style="font-size:0.75rem; margin:4px 0;">
-              <thead>
-                <tr><th>狀態</th><th>HSO₄⁻</th><th>H⁺</th><th>SO₄²⁻</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>初</td><td>1 M</td><td>1 M</td><td>0</td></tr>
-                <tr style="border-bottom: 2px solid var(--chalk-yellow);"><td>變</td><td>-x</td><td>+x</td><td>+x</td></tr>
-                <tr><td>平</td><td>1-x</td><td>1+x</td><td>x</td></tr>
-              </tbody>
-            </table>
-            代入 K<sub>a2</sub> ＝ [(1+x)x] / (1-x) ＝ 10⁻²，解得 <span class="cloze" style="color:var(--chalk-green);">x ＝ 0.01 M</span>。<br>
-            故總 [H⁺] ＝ 1 ＋ 0.01 ＝ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">1.01 M</span>。<br>
-            👉 <b>結論</b>：硫酸在水中非常像只解離 1 個 H⁺（高濃度時以第一段為主）。
+            • <b>第 2 段解離（弱酸）</b>：<br>
+            <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-cyan); margin:3px 0;">
+              HSO<sub>4</sub><sup>-</sup> ⇌ SO<sub>4</sub><sup>2-</sup> ＋ H<sup>+</sup> , <i>K</i><sub>a2</sub> ＝ 10<sup>-2</sup>
+            </div>
+          </div>
+        </div>
+
+        <div class="reaction-box" style="border-left: 3px solid var(--chalk-red);">
+          <div class="sub-head" style="color:var(--chalk-red); margin-bottom:4px;">
+            ⚠️ 經典陷阱：1 M 的 H<sub>2</sub>SO<sub>4</sub> 之 [H<sup>+</sup>]？
+          </div>
+          <div style="font-size: 0.81rem; line-height: 1.6;">
+            • <b>錯誤直覺</b>：以為二元酸故 [H<sup>+</sup>] ＝ 2 M。<br>
+            • <b>正確微觀平衡</b>：<br>
+            設第 2 段解離出 x M 的 H<sup>+</sup>：<br>
+            <i>K</i><sub>a2</sub> ＝ ([H<sup>+</sup>][SO<sub>4</sub><sup>2-</sup>]) / [HSO<sub>4</sub><sup>-</sup>] ＝ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">(1 + x)x / (1 - x) ＝ 10<sup>-2</sup></span><br>
+            解得 x ≈ 0.01 M。<br>
+            因此實際 <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">[H<sup>+</sup>] ＝ 1.01 M</span>（而非 2 M）！<br>
+            👉 <b>結論</b>：<span class="cloze" style="color:var(--chalk-red); font-weight:bold;">硫酸在水中比較像只解離 1 個 H<sup>+</sup></span>！
           </div>
         </div>
 
         <div class="note-pill" style="display:block; text-align:center;">
-          💡 展哥口訣：硫酸第一段無限大，第二段 Ka2=0.01，高濃度直接視為一元強酸！
+          💡 展哥點撥：硫酸第 2 段 <i>K</i><sub>a2</sub> ＝ 10<sup>-2</sup> 雖比一般弱酸大，但受第一段大量 H<sup>+</sup> 的「同離子效應」壓抑，解離相當有限！
         </div>
       </div>
 
-      <!-- 第 4 欄：亞硫酸的雙重解離與一元化近似特權 -->
+      <!-- 第 4 欄：亞硫酸兩段解離與一元酸近似技巧 -->
       <div class="col-card">
         <div class="col-title">
-          <span>四、亞硫酸：多元弱酸的化繁為簡</span>
-          <span style="font-size:0.75rem; opacity:0.8;">H₂SO₃ 之 Ka1 與 Ka2 級數懸殊</span>
+          <span>四、亞硫酸兩段解離與近似技巧</span>
+          <span style="font-size:0.75rem; opacity:0.8;">H<sub>2</sub>SO<sub>3</sub> 視為一元酸簡化</span>
         </div>
 
         <div class="section-box">
           <div class="sub-head">1. 亞硫酸的兩段解離常數</div>
-          <div style="font-size:0.81rem; line-height:1.55;">
-            • <b>第一段解離</b>：H₂SO₃ ⇌ HSO₃⁻ ＋ H⁺，<span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;">K<sub>a1</sub> ＝ 10⁻²</span>。<br>
-            • <b>第二段解離</b>：HSO₃⁻ ⇌ SO₃²⁻ ＋ H⁺，<span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">K<sub>a2</sub> ＝ 10⁻⁸</span>。<br>
-            • <b>實戰考題：請問 1 M H₂SO₃ 的 [H⁺] 為何？</b><br>
-            👉 <b>大考秒殺技巧</b>：因為 K<sub>a1</sub> (10⁻²) 遠大於 K<sub>a2</sub> (10⁻⁸)，第二段解離產生的 H⁺ 少到可以完全忽略！<br>
-            因此，我們可以直接把亞硫酸<b>視為單質子弱酸</b>，只代入第一段 K<sub>a1</sub> 計算：<br>
-            <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-yellow); margin:4px 0;">
-              [H⁺] ＝ √(c · K<sub>a1</sub>) ＝ √(1 × 10⁻²) ＝ <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">0.1 M</span>
+          <div style="font-size: 0.81rem; line-height: 1.6;">
+            • <b>第 1 段解離</b>：<br>
+            <div class="chem-eq-hero" style="font-size:0.76rem; color:var(--chalk-yellow); margin:3px 0;">
+              H<sub>2</sub>SO<sub>3</sub> ⇌ HSO<sub>3</sub><sup>-</sup> ＋ H<sup>+</sup> , <i>K</i><sub>a1</sub> ＝ 10<sup>-2</sup>
+            </div>
+            • <b>第 2 段解離</b>：<br>
+            <div class="chem-eq-hero" style="font-size:0.76rem; color:var(--chalk-cyan); margin:3px 0;">
+              HSO<sub>3</sub><sup>-</sup> ⇌ SO<sub>3</sub><sup>2-</sup> ＋ H<sup>+</sup> , <i>K</i><sub>a2</sub> ＝ 10<sup>-8</sup>
+            </div>
+          </div>
+        </div>
+
+        <div class="reaction-box" style="border-left: 3px solid var(--chalk-green);">
+          <div class="sub-head" style="color:var(--chalk-green); margin-bottom:4px;">
+            🎯 考試大招：將 H<sub>2</sub>SO<sub>3</sub> 視為一元酸！
+          </div>
+          <div style="font-size: 0.81rem; line-height: 1.6;">
+            • <b>題目</b>：請問 1 M 的 H<sub>2</sub>SO<sub>3</sub> 之 [H<sup>+</sup>]？<br>
+            • <b>解法精要</b>：因為 <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;"><i>K</i><sub>a1</sub> ≫ <i>K</i><sub>a2</sub></span>（相差 10<sup>6</sup> 倍以上），第 2 段解離產生的 [H<sup>+</sup>] 微乎其微，可完全忽略！<br>
+            • 計算時直接<span class="cloze" style="color:var(--chalk-green); font-weight:bold;">代入 <i>K</i><sub>a1</sub> 視為一元酸</span>計算：<br>
+            <div style="text-align:center; margin: 4px 0; color:var(--chalk-yellow); font-weight:bold;">
+              [H<sup>+</sup>] ＝ √(c · <i>K</i><sub>a1</sub>) ＝ √(1 × 10<sup>-2</sup>) ＝ 0.1 M
             </div>
           </div>
         </div>
 
         <div class="note-pill" style="display:block; text-align:center;">
-          📌 展哥重點：多元弱酸求氫離子濃度時，若 Ka1 遠大於 Ka2，直接代入 Ka1 當作一元酸算即可！
+          📌 展哥重點：多元弱酸計算中，若 <i>K</i><sub>a1</sub> / <i>K</i><sub>a2</sub> ≥ 10<sup>3</sup>，則 [H<sup>+</sup>] 可直接由 <i>K</i><sub>a1</sub> 決定！
         </div>
       </div>
 
@@ -819,71 +849,44 @@
     <div class="extension-container">
       <div class="extension-header">
         <div class="extension-title">
-          <span>🧠 【展氏新解】延伸思維：從「黑板計算」跨入「多元酸精確解聯立方程與同離子效應」</span>
+          <span>🧠 【展氏新解】延伸思維：多元酸多重平衡與共軛酸鹼對的質子競逐</span>
         </div>
-        <span class="extension-badge">多元酸精確聯立 · 第二段解離貢獻率 · 緩衝與同離子抑制</span>
+        <span class="extension-badge">多元質子平衡 · 質子守恆 · 緩衝溶液先修</span>
       </div>
 
       <div class="extension-grid">
-        <!-- 區塊 A：多元酸第二段解離是否真能完全忽略？ -->
+        <!-- 區塊 A -->
         <div class="ext-box">
           <div style="font-weight:800; color:var(--chalk-cyan); font-size:0.92rem;">
-            📌 A. 為什麼多元弱酸（如 H₂SO₃）求 [H⁺] 可以只看 K<sub>a1</sub>？
+            📌 A. 為什麼硫酸的第 2 段解離常數 <i>K</i><sub>a2</sub> 遠小于 <i>K</i><sub>a1</sub>？
           </div>
           <p style="font-size:0.82rem; color:var(--text-sub);">
-            從化學平衡的「同離子效應 (Common-ion effect)」來透視微觀本質：
+            硫酸分子 H<sub>2</sub>SO<sub>4</sub> 解離出第一個質子 H<sup>+</sup> 時，帶正電的質子要脫離帶負電的硫酸氫根 HSO<sub>4</sub><sup>-</sup>，庫侖吸引力極大故極易解離（強酸）。
           </p>
           <ul style="font-size:0.81rem; line-height:1.6;">
-            <li><b>第一段主導</b>：K<sub>a1</sub> ＝ 10⁻² 產生的 [H⁺] 已經高達 0.1 M。</li>
-            <li><b>同離子壓抑</b>：當進行第二段解離時 (HSO₃⁻ ⇌ H⁺ ＋ SO₃²⁻)，溶液中已經充滿了第一段解離出來的龐大 [H⁺] (0.1 M)。</li>
-            <li><b>平衡左移</b>：龐大的 [H⁺] 形成強烈的同離子壓抑，使第二段解離平衡嚴重向左倒退，因此 [SO₃²⁻] 幾乎等於 K<sub>a2</sub> (10⁻⁸ M)，對總 [H⁺] 的貢獻率低於百萬分之一，完全可以安全忽略！</li>
+            <li>然而當要從 HSO<sub>4</sub><sup>-</sup> 再解離出第二個質子時，質子必須克服帶 -1 價的強烈負電荷吸引力，導致能量障礙陡增。</li>
+            <li>因此 <b style="color:var(--chalk-yellow);"><i>K</i><sub>a2</sub> ＝ 10<sup>-2</sup></b> 表現出弱酸性質。</li>
           </ul>
         </div>
 
-        <!-- 區塊 B：當硫酸濃度極度稀釋時，第二段解離還能忽略嗎？ -->
+        <!-- 區塊 B -->
         <div class="ext-box">
           <div style="font-weight:800; color:var(--chalk-orange); font-size:0.92rem;">
-            📌 B. 【極限思維】：當硫酸濃度極度稀釋（如 10⁻⁵ M）時會發生什麼事？
+            📌 B. 多元弱酸溶液中的精確質量守恆與電荷守恆
           </div>
           <p style="font-size:0.82rem; color:var(--text-sub);">
-            我們常說「硫酸第一段完全解離、第二段 K<sub>a2</sub> ＝ 0.01」，但在極端低濃度下：
+            以亞硫酸 H<sub>2</sub>SO<sub>3</sub> 為例，當溶液達到平衡時，其硫元素的總初始濃度 c 嚴格滿足質量守恆：
           </p>
           <div style="background:var(--section-box-bg); padding:8px; border-radius:6px; border-left:3px solid var(--chalk-orange); font-size:0.81rem; line-height:1.55;">
-            • <b>迷思破除</b>：當硫酸被大量加水稀釋至 c ＜ 10⁻⁴ M 時，第一段產生的 [H⁺] 極少，同離子效應消失。<br>
-            • <b>微觀真相</b>：此時 HSO₄⁻ 會發生顯著的第二段解離，不能再簡單視為強酸！必須透過嚴格解聯立方程式（考慮電荷守恆 [H⁺] ＝ [HSO₄⁻] ＋ 2[SO₄²⁻]）來精確求解。
-          </div>
-        </div>
-
-        <!-- 區塊 C：草酸與磷酸系統的多質子計算通則 -->
-        <div class="ext-box">
-          <div style="font-weight:800; color:var(--chalk-yellow); font-size:0.92rem;">
-            📌 C. 【類題延伸】：草酸 (H₂C₂O₄) 與磷酸 (H₃PO₄) 的階梯解離
-          </div>
-          <p style="font-size:0.82rem; color:var(--text-sub);">
-            大考經常考查多元酸各粒子濃度大小排序，其萬用通則為：
-          </p>
-          <div style="font-size:0.81rem; line-height:1.6; background:var(--section-box-bg); padding:8px; border-radius:6px;">
-            • 以二元弱酸 H₂A 為例：<br>
-            👉 <b>未解離分子濃度最大</b>：[H₂A] ＞ [H⁺] ＞ [HA⁻] ≫ [A²⁻]。<br>
-            👉 <b>第二段共軛鹼極少</b>：[A²⁻] 數值上恆等於或極接近第二段解離常數 <span style="color:var(--chalk-yellow);">K<sub>a2</sub></span>！這是在考場上秒殺選擇題的絕對心法。
-          </div>
-        </div>
-
-        <!-- 區塊 D：近似條件失效時的數學解方 -->
-        <div class="ext-box">
-          <div style="font-weight:800; color:var(--chalk-green); font-size:0.92rem;">
-            📌 D. 【數學嚴密性】：當弱酸解離度大於 5% 時的求根公式
-          </div>
-          <p style="font-size:0.82rem; color:var(--text-sub);">
-            當酸很稀或 K<sub>a</sub> 很大時，分母不能省略 x，此時必須回歸一元二次方程式：
-          </p>
-          <div style="font-size:0.81rem; line-height:1.6; background:var(--section-box-bg); padding:8px; border-radius:6px;">
-            • 完整平衡式：[x² / (c - x)] ＝ K<sub>a</sub> ⟹ x² ＋ K<sub>a</sub>x - K<sub>a</sub>c ＝ 0<br>
-            • 根公式求解：
-            <div style="text-align:center; margin:4px 0; color:var(--chalk-yellow); font-weight:bold;">
-              x ＝ [-K<sub>a</sub> ＋ √(K<sub>a</sub>² ＋ 4K<sub>a</sub>c)] / 2
+            • <b>質量守恆</b>：<br>
+            <div style="text-align:center; color:var(--chalk-yellow); font-weight:bold; margin: 4px 0;">
+              c ＝ [H<sub>2</sub>SO<sub>3</sub>] ＋ [HSO<sub>3</sub><sup>-</sup>] ＋ [SO<sub>3</sub><sup>2-</sup>]
             </div>
-            掌握此式，無論酸有多稀、解離度多高，所有計算題皆能迎刃而解！
+            • <b>電荷守恆（電中性原理）</b>：<br>
+            <div style="text-align:center; color:var(--chalk-cyan); font-weight:bold; margin: 4px 0;">
+              [H<sup>+</sup>] ＝ [HSO<sub>3</sub><sup>-</sup>] ＋ 2[SO<sub>3</sub><sup>2-</sup>] ＋ [OH<sup>-</sup>]
+            </div>
+            這兩大守恆定律是未來破解高中化學酸鹼滴定與緩衝溶液的最高指導原則！
           </div>
         </div>
       </div>
@@ -891,7 +894,7 @@
 
     <!-- 頁尾版權與計數器 -->
     <div class="footer">
-      <div>展氏新解 · 一元酸與多元酸的微觀解離計算、近似條件檢驗與硫酸亞硫酸特權</div>
+      <div>展氏新解 · 多元酸的解離計算與一元弱酸進階範例</div>
       <div class="footer-copyright">© 展氏新解 版權所有</div>
       <div style="font-size:0.78rem; opacity:0.85; margin-top:4px; display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.06); padding:2px 10px; border-radius:12px; border:1px solid var(--card-border);">
         <span>👀 累計點閱：</span>
@@ -908,7 +911,7 @@
       <div class="quiz-header">
         <div style="display:flex; align-items:center; gap:8px;">
           <span class="brand-tag">展氏新解</span>
-          <h2 style="font-size:1.15rem; font-weight:900;">一元與多元酸解離計算即時檢測系統</h2>
+          <h2 style="font-size:1.15rem; font-weight:900;">多元酸與進階弱酸計算即時檢測系統</h2>
         </div>
         <button class="btn" style="background:#dc2626; color:#fff; border:none;" onclick="closeQuiz()">✕ 關閉返回講義</button>
       </div>
@@ -927,56 +930,44 @@
     const QUESTION_BANK = [
       {
         id: 1,
-        level: "一元弱酸與未知酸反推",
-        question: "已知某一元弱酸在 0.1 M 時的 pH = 2。若將此弱酸濃度稀釋或調整為 0.2 M 時，其氫離子濃度 [H⁺] 與 pH 值分別為何？",
+        level: "一元弱酸計算",
+        question: "已知某單質子弱酸在 0.1 M 時的 pH ＝ 2，則此弱酸的解離常數 <i>K</i><sub>a</sub> 為何？",
         options: [
-          "A. [H⁺] = 0.2 M, pH = 0.70",
-          "B. [H⁺] = √2 × 10⁻² M, pH = 1.85",
-          "C. [H⁺] = 2 × 10⁻³ M, pH = 2.70",
-          "D. [H⁺] = 10⁻² M, pH = 2.00",
-          "E. [H⁺] = 0.1 M, pH = 1.00"
+          "A. 10<sup>-2</sup>",
+          "B. 10<sup>-3</sup>",
+          "C. 10<sup>-4</sup>",
+          "D. 10<sup>-5</sup>"
         ],
         answer: 1,
-        explanation: "【展氏新解解析】：<br>• <b>步驟一：求 Ka</b>：當 0.1 M 時 pH = 2，故 [H⁺] = 10⁻² M。代入 Ka = [H⁺]² / c = (10⁻²)² / 0.1 = 10⁻³。<br>• <b>步驟二：求 0.2 M時之 [H⁺]</b>：[H⁺] = √(c · Ka) = √(0.2 × 10⁻³) = √(2 × 10⁻⁴) = √2 × 10⁻² M。<br>• <b>步驟三：求 pH</b>：pH = -log(√2 × 10⁻²) = 2 - log(√2) = 2 - 0.15 = 1.85。故選項 B 完全正確！"
+        explanation: "【展氏新解解析】：pH ＝ 2 代表 [H<sup>+</sup>] ＝ 10<sup>-2</sup> M。代入 [H<sup>+</sup>] ＝ √(c · <i>K</i><sub>a</sub>)，(10<sup>-2</sup>)<sup>2</sup> ＝ 0.1 × <i>K</i><sub>a</sub>，故 <i>K</i><sub>a</sub> ＝ 10<sup>-3</sup>。正確答案為 B。"
       },
       {
         id: 2,
-        level: "多元酸：硫酸的微觀計算",
-        question: "在 25°C 下，有關 1.0 M 硫酸 (H₂SO₄) 水溶液之微觀粒子濃度與性質敘述，下列何者正確？（已知 HSO₄⁻ 之 Ka2 = 10⁻²）",
+        level: "多元酸計算陷阱",
+        question: "在 25°C 下，下列關於 1 M 的硫酸 (H<sub>2</sub>SO<sub>4</sub>) 水溶液中微觀離子濃度的敘述，何者正確？",
         options: [
-          "A. 第一段完全解離，故溶液中 [H⁺] 恰好等於 1.0 M，完全沒有 HSO₄⁻ 分子殘留",
-          "B. 透過第二段解離平衡計算（Ka2 = 10⁻²），解離出的氫离子濃度 x 約為 0.01 M",
-          "C. 硫酸溶液中總 [H⁺] 濃度剛好等於 2.0 M",
-          "D. 因 Ka2 很大，故硫酸在水中表現得像弱酸",
-          "E. 硫酸第二段解離產生的 [SO₄²⁻] 濃度大於 0.5 M"
+          "A. [H<sup>+</sup>] 恰好等於 2.0 M",
+          "B. 由於硫酸是強酸，故 [SO<sub>4</sub><sup>2-</sup>] ＝ 1.0 M 且 [HSO<sub>4</sub><sup>-</sup>] ＝ 0",
+          "C. 實際 [H<sup>+</sup>] 約為 1.01 M，因為第 2 段解離 (<i>K</i><sub>a2</sub> = 10<sup>-2</sup>) 受第一段 H<sup>+</sup> 壓抑，解離有限",
+          "D. [H<sup>+</sup>] 遠小於 1.0 M"
         ],
-        answer: 1,
-        explanation: "【展氏新解解析】：<br>• <b>選項 A 錯誤</b>：第一段完全解離產生 1 M H⁺ 與 1 M HSO₄⁻，HSO₄⁻ 還會進一步解離。<br>• <b>選項 B 正確</b>：代入第二段 ICE 計算：Ka2 = [(1+x)x] / (1-x) = 10⁻²，解得 x = 0.01 M，故第二段確實貢獻了 0.01 M 的 H⁺ 與 SO₄²⁻。<br>• <b>選項 C 錯誤</b>：總 [H⁺] = 1 + 0.01 = 1.01 M，並非 2.0 M。<br>• <b>選項 D、E 錯誤</b>：硫酸第一段為強酸，總體表現為強酸特性，SO₄²⁻ 濃度約為 0.01 M。"
+        answer: 2,
+        explanation: "【展氏新解解析】：硫酸第 1 段完全解離產生 1 M 的 H<sup>+</sup> 與 1 M 的 HSO<sub>4</sub><sup>-</sup>；第 2 段解離常數 <i>K</i><sub>a2</sub> ＝ 10<sup>-2</sup>，帶入平衡計算可得額外產生約 0.01 M 的 H<sup>+</sup>，故總 [H<sup>+</sup>] ≈ 1.01 M。正確答案為 C。"
       },
       {
         id: 3,
-        level: "多元弱酸的化繁為簡 (亞硫酸)",
-        question: "已知亞硫酸 (H₂SO₃) 之 Ka1 = 10⁻², Ka2 = 10⁻⁸。請問在 1.0 M 的 H₂SO₃ 水溶液中，其氫離子濃度 [H⁺] 大約為何？",
+        level: "多元酸近似技巧",
+        question: "已知亞硫酸 (H<sub>2</sub>SO<sub>3</sub>) 的 <i>K</i><sub>a1</sub> ＝ 10<sup>-2</sup>，<i>K</i><sub>a2</sub> ＝ 10<sup>-8</sup>。若配製 1.0 M 的 H<sub>2</sub>SO<sub>3</sub> 水溶液，下列關於其 [H<sup>+</sup>] 計算的敘述何者正確？",
         options: [
-          "A. 1.0 M",
-          "B. 0.1 M",
-          "C. 10⁻⁴ M",
-          "D. 10⁻⁸ M",
-          "E. 1.1 M"
+          "A. 必須同時考慮兩段解離所產生的 H<sup>+</sup>，計算極其繁瑣",
+          "B. 因為 <i>K</i><sub>a1</sub> ≫ <i>K</i><sub>a2</sub>，可將其視為一元酸，直接代入 <i>K</i><sub>a1</sub> 計算得 [H<sup>+</sup>] ≈ 0.1 M",
+          "C. [H<sup>+</sup>] ＝ 1.0 M",
+          "D. [H<sup>+</sup>] ＝ 10<sup>-8</sup> M"
         ],
         answer: 1,
-        explanation: "【展氏新解解析】：<br>• <b>多元弱酸特權</b>：因為亞硫酸的第一段解離常數 Ka1 (10⁻²) 遠大於第二段 Ka2 (10⁻⁸)，且濃度夠大，第二段解離產生的 H⁺ 極少，可完全忽略。<br>• <b>計算</b>：直接視為一元弱酸代入 Ka1 計算：[H⁺] = √(c · Ka1) = √(1.0 × 10⁻²) = 10⁻¹ = <b>0.1 M</b>。故選項 B 正確！"
+        explanation: "【展氏新解解析】：因為 <i>K</i><sub>a1</sub> 與 <i>K</i><sub>a2</sub> 相差高達 10<sup>6</sup> 倍以上，第 2 段解離產生的 H<sup>+</sup> 量微不足道，計算 [H<sup>+</sup>] 時可直接忽略第 2 段，視為一元酸代入 <i>K</i><sub>a1</sub> 計算：[H<sup>+</sup>] ＝ √(1 × 10<sup>-2</sup>) ＝ 0.1 M。正確答案為 B。"
       }
     ];
-
-    window.updateQuestionBank = function(newBank) {
-      if (Array.isArray(newBank)) {
-        QUESTION_BANK.length = 0;
-        QUESTION_BANK.push(...newBank);
-        renderQuiz();
-        console.log("✅ 題庫已更新！共載入 " + newBank.length + " 題。");
-      }
-    };
 
     const userAnswers = {};
 
@@ -1079,7 +1070,6 @@
       });
     }
 
-    // 點擊單一挖空區域個別顯現
     document.addEventListener('click', function(e) {
       if (!document.body.classList.contains('cloze-mode')) return;
 
@@ -1092,11 +1082,10 @@
 
     renderQuiz();
 
-    // 點閱計數器
     (function recordPageView() {
       const counterEl = document.getElementById("pageViews");
       const timestamp = new Date().getTime();
-      const pageKey = "zhan-acid-calculation-polyprotic-v1";
+      const pageKey = "zhan-multiprotic-acid-v1";
       const apiUrl = `https://api.counterapi.dev/v1/zhan-chemistry/${pageKey}/up?t=${timestamp}`;
 
       fetch(apiUrl)
