@@ -437,19 +437,43 @@
         </div>
 
         <div class="section-box">
-          <div class="sub-head">1. 基礎反應與常數</div>
+          <div class="sub-head">1. 口訣複習與基礎常數</div>
+          <div style="background: rgba(253,224,71,0.1); border: 1px dashed var(--chalk-yellow); padding: 5px; border-radius: 4px; margin-bottom: 6px; font-size: 0.78rem;">
+            🎯 <b>上次口訣複習</b>：<br>
+            • 計算 [H⁺] 採 $\rightarrow$ <b style="color:var(--chalk-yellow);">「氫乘」</b> [H⁺] ＝ √(<i>c</i> · <i>K</i><sub>a</sub>)<br>
+            • 計算解離度採 $\rightarrow$ <b style="color:var(--chalk-cyan);">「趴下C」</b> α% ＝ √(<i>K</i><sub>a</sub> / <i>c</i>)
+          </div>
+
           <div class="chem-eq-hero">
-            CH₃COOH⇌CH₃COO⁻＋H⁺ , <i>K</i><sub>a</sub>＝<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">10⁻⁵</span>
+            CH₃COOH ⇌ CH₃COO⁻ ＋ H⁺ , <i>K</i><sub>a</sub> ＝ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">10⁻⁵</span>
           </div>
           <div style="font-size:0.8rem; margin-top:4px; letter-spacing:-0.2px;">
             • <b>已知 0.1 M 醋酸</b>：<br>
-            [H⁺]＝<span class="cloze" style="color:var(--chalk-cyan);">√(<i>c</i>·<i>K</i><sub>a</sub>)＝√(0.1×10⁻⁵)＝10⁻³ M</span> (&lt;0.1M)<br>
-            • <b>解離百分率 (α)</b>：<br>
-            <span class="cloze" style="color:var(--chalk-green);">α＝(10⁻³/0.1)×100%＝1%</span>
+            [H⁺] ＝ <span class="cloze" style="color:var(--chalk-cyan);">√(<i>c</i> · <i>K</i><sub>a</sub>) ＝ √(0.1 × 10⁻⁵) ＝ 10⁻³ M</span><br>
+            • <b>解離百分率 (α) 雙方法對比</b>：
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: 4px;">
+              <div style="background: rgba(0,0,0,0.35); border: 1px solid var(--card-border); border-radius: 4px; padding: 5px; text-align: center;">
+                <div style="font-size: 0.7rem; font-weight: 800; color: var(--chalk-cyan);">方法1（趴下C）</div>
+                <div style="font-size: 0.73rem; color: var(--chalk-yellow); margin-top: 2px;">
+                  α ＝ √(<i>K</i><sub>a</sub> / <i>c</i>)<br>
+                  ＝ √(10⁻⁵ / 0.1)<br>
+                  ＝ √(10⁻⁴) ＝ <span class="cloze" style="font-weight:bold;">1%</span>
+                </div>
+              </div>
+              <div style="background: rgba(0,0,0,0.35); border: 1px solid var(--card-border); border-radius: 4px; padding: 5px; text-align: center;">
+                <div style="font-size: 0.7rem; font-weight: 800; color: var(--chalk-green);">方法2（定義法）</div>
+                <div style="font-size: 0.73rem; color: var(--chalk-green); margin-top: 2px;">
+                  α ＝ ([H⁺] / [HA]₀)×100%<br>
+                  ＝ (10⁻³ / 0.1)×100%<br>
+                  ＝ <span class="cloze" style="font-weight:bold;">1%</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- 互動微觀對比 -->
         <div class="diagram-wrap" style="padding: 8px 6px;">
           <div style="font-size: 0.78rem; font-weight: 800; color: var(--chalk-cyan); margin-bottom: 4px;">
             【微觀濃度對比】：0.1 M 醋酸 vs 強酸
@@ -458,14 +482,14 @@
             <g transform="translate(10, 5)">
               <rect x="0" y="0" width="110" height="75" rx="6" fill="rgba(248,113,113,0.12)" stroke="#f87171" stroke-width="1.2"/>
               <text x="55" y="16" font-size="8.5" font-weight="900" text-anchor="middle" fill="#f87171">強酸 HCl (0.1M)</text>
-              <text x="55" y="38" font-size="8px" font-weight="800" text-anchor="middle" fill="#fde047">[H⁺]＝0.1 M</text>
-              <text x="55" y="56" font-size="8px" font-weight="800" text-anchor="middle" fill="#67e8f9">α＝100% (完全)</text>
+              <text x="55" y="38" font-size="8px" font-weight="800" text-anchor="middle" fill="#fde047">[H⁺] ＝ 0.1 M</text>
+              <text x="55" y="56" font-size="8px" font-weight="800" text-anchor="middle" fill="#67e8f9">α ＝ 100% (完全)</text>
             </g>
             <g transform="translate(135, 5)">
               <rect x="0" y="0" width="110" height="75" rx="6" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-width="1.2"/>
               <text x="55" y="16" font-size="8.5" font-weight="900" text-anchor="middle" fill="#38bdf8">弱酸 (0.1M)</text>
-              <text x="55" y="38" font-size="8px" font-weight="800" text-anchor="middle" fill="#fde047">[H⁺]＝10⁻³ M</text>
-              <text x="55" y="56" font-size="8px" font-weight="800" text-anchor="middle" fill="#86efac">α＝1% (部分)</text>
+              <text x="55" y="38" font-size="8px" font-weight="800" text-anchor="middle" fill="#fde047">[H⁺] ＝ 10⁻³ M</text>
+              <text x="55" y="56" font-size="8px" font-weight="800" text-anchor="middle" fill="#86efac">α ＝ 1% (部分)</text>
             </g>
           </svg>
         </div>
@@ -483,39 +507,66 @@
         </div>
 
         <div class="section-box">
-          <div class="sub-head">1. 典型範例：pH 反推 <i>K</i><sub>a</sub></div>
+          <!-- 1. 典型範例標題改為橘色 -->
+          <div class="sub-head" style="color: var(--chalk-orange);">1. 典型範例：pH 反推 <i>K</i><sub>a</sub></div>
+          <div style="background: rgba(0,0,0,0.3); border-left: 2px solid var(--chalk-orange); padding: 5px; border-radius: 4px; margin-bottom: 6px; font-size: 0.78rem;">
+            📋 <b>【例題】</b>：某一元弱酸在 <span style="color:var(--chalk-yellow);">0.1 M</span> 時，測得 <span style="color:var(--chalk-cyan);">pH ＝ 2.0</span>。試求此弱酸的解離常數 <i>K</i><sub>a</sub>？
+          </div>
+
           <div style="font-size:0.8rem; line-height:1.55; letter-spacing:-0.2px;">
-            • <b>已知條件</b>：一元弱酸在 <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">0.1 M</span> 時，pH＝<span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;">2.0</span>（[H⁺]＝10⁻²M）。<br>
-            • <b>求 <i>K</i><sub>a</sub></b>：<br>
+            • <b>解析步驟</b>：<br>
+            由 pH ＝ 2.0 知 <span class="cloze" style="color:var(--chalk-green);">[H⁺] ＝ 10⁻² M</span>。<br>
+            代入公式：[H⁺] ＝ √(<i>c</i> · <i>K</i><sub>a</sub>)<br>
             <div style="background:rgba(0,0,0,0.3); padding:4px 6px; border-radius:4px; font-family:monospace; margin:4px 0; text-align:center; color:var(--chalk-green);">
-              [H⁺]＝√(<i>c</i>·<i>K</i><sub>a</sub>) ⇒ 10⁻²＝√(0.1×<i>K</i><sub>a</sub>)<br>
-              (10⁻²)²＝0.1×<i>K</i><sub>a</sub> ⇒ <i>K</i><sub>a</sub>＝<span class="cloze" style="font-weight:bold; color:var(--chalk-yellow);">10⁻³</span>
+              (10⁻²)² ＝ 0.1 × <i>K</i><sub>a</sub><br>
+              10⁻⁴ ＝ 0.1 × <i>K</i><sub>a</sub> ⇒ <i>K</i><sub>a</sub> ＝ <span class="cloze" style="font-weight:bold; color:var(--chalk-yellow);">10⁻³</span>
             </div>
           </div>
         </div>
 
         <div class="reaction-box" style="border-left: 3px solid var(--chalk-orange); letter-spacing:-0.2px;">
           <div class="sub-head" style="color:var(--chalk-orange);">
-            2. 濃度改變推算範例
+            2. 濃度改變推算範例（兩種解法）
+          </div>
+          <!-- 強調 Ka 恆定不變 -->
+          <div style="font-size:0.78rem; color:var(--chalk-yellow); margin-bottom: 4px; background: rgba(253,224,71,0.12); padding: 3px 5px; border-radius: 3px;">
+            ⚠️ <b>關鍵觀念</b>：同一種酸的 <i>K</i><sub>a</sub> 絕不會受到濃度改變而影響，故此題繼續沿用前一題的 <b><i>K</i><sub>a</sub> ＝ 10⁻³</b>！
           </div>
           <div style="font-size:0.8rem; line-height:1.55;">
-            • 若改配成 <span class="cloze" style="color:var(--chalk-yellow);">0.2 M</span>，其 pH 為何？<br>
-            <div style="font-family:monospace; margin-top:3px; color:var(--text-main);">
-              [H⁺]＝√(0.2×10⁻³)＝√(2×10⁻⁴)＝<span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;">√2×10⁻² M</span><br>
-              pH＝－log(√2×10⁻²)＝<span class="cloze" style="color:var(--chalk-green); font-weight:bold;">2－½log2≈1.85</span>
+            • 若改將此弱酸配成 <span class="cloze" style="color:var(--chalk-yellow);">0.2 M</span>，其 pH 為何？<br>
+            
+            <!-- 方法一 -->
+            <div style="margin-top: 5px; background: rgba(0,0,0,0.35); padding: 5px; border-radius: 4px; border: 1px dashed var(--card-border);">
+              <div style="font-weight:800; color:var(--chalk-cyan);">方法一（先求 [H⁺] 再用 <i>b</i> － log <i>a</i>）</div>
+              <div style="font-family:monospace; margin-top:2px; font-size: 0.77rem;">
+                [H⁺] ＝ √(0.2 × 10⁻³) ＝ √(2 × 10⁻⁴) ＝ <span style="color:var(--chalk-green);">√2 × 10⁻² M</span><br>
+                💡 <i>複習：若 [H⁺] ＝ a × 10⁻<sup>b</sup>，則 pH ＝ b － log a</i><br>
+                pH ＝ －log(√2 × 10⁻²) ＝ <span style="color:var(--chalk-yellow); font-weight:bold;">2 － ½log 2 ≈ 1.85</span>
+              </div>
             </div>
+
+            <!-- 方法二 -->
+            <div style="margin-top: 5px; background: rgba(0,0,0,0.35); padding: 5px; border-radius: 4px; border: 1px dashed var(--card-border);">
+              <div style="font-weight:800; color:var(--chalk-green);">方法二（根號直接提出法）</div>
+              <div style="font-family:monospace; margin-top:2px; font-size: 0.77rem;">
+                [H⁺] ＝ <span style="color:var(--chalk-cyan);">√(0.2 × 10⁻³)</span> ＝ √(2 × 10⁻⁴)<br>
+                pH ＝ －log(2 × 10⁻⁴)<sup>½</sup><br>
+                　 ＝ <span style="color:var(--chalk-yellow); font-weight:bold;">½ [ －log(2 × 10⁻⁴) ] ＝ ½ ( 4 － log 2 ) ＝ 2 － ½log 2 ≈ 1.85</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
         <div class="note-pill" style="display:block; text-align:center;">
-          💡 展哥口訣：先由 pH 求 [H⁺]，再代入 [H⁺]＝√(<i>c</i>·<i>K</i><sub>a</sub>) 破解！
+          💡 展哥口訣：先由 pH 求 [H⁺]，再代入 [H⁺] ＝ √(<i>c</i> · <i>K</i><sub>a</sub>) 破解！
         </div>
       </div>
 
-      <!-- 欄位三：多元酸：硫酸 (H2SO4) 的兩段解離與陷阱（忠實重現版書直式對齊計算） -->
+      <!-- 欄位三：多元酸：硫酸 (H2SO4) 的兩段解離與陷阱 -->
       <div class="col-card">
         <div class="col-title">
-          <span>三、多元酸：硫酸 (H₂SO₄)</span>
+          <span>三、多元酸：硫酸 ($\text{H}_2\text{SO}_4$)</span>
           <span style="font-size:0.75rem; opacity:0.8;">1M 硫酸 [H⁺] 計算陷阱</span>
         </div>
 
@@ -524,9 +575,8 @@
           <div style="font-size:0.8rem; line-height:1.55; letter-spacing:-0.2px;">
             • <b>第 1 段解離</b>（強酸）：<br>
             <div class="chem-eq-hero" style="font-size:0.75rem; color:var(--chalk-red); margin:2px 0;">
-              H₂SO₄ → HSO₄⁻ ＋ H⁺ , <i>K</i><sub>a1</sub> ＝ ∞
+              $\text{H}_2\text{SO}_4$ → $\text{HSO}_4^-$ ＋ $\text{H}^+$ , <i>K</i><sub>a1</sub> ＝ ∞
             </div>
-            <!-- 直式計量對齊 -->
             <table class="role-table" style="font-size:0.72rem; margin:2px 0;">
               <tr><th>初</th><td>1 M</td><td>0</td><td>0</td></tr>
               <tr><th>變</th><td>－1 M</td><td>＋1 M</td><td>＋1 M</td></tr>
@@ -535,12 +585,11 @@
 
             • <b>第 2 段解離</b>（弱酸）：<br>
             <div class="chem-eq-hero" style="font-size:0.75rem; color:var(--chalk-cyan); margin:2px 0;">
-              HSO₄⁻ ⇌ H⁺ ＋ SO₄²⁻ , <i>K</i><sub>a2</sub> ＝ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">10⁻²</span>
+              $\text{HSO}_4^-$ ⇌ $\text{H}^+$ ＋ $\text{SO}_4^{2-}$ , <i>K</i><sub>a2</sub> ＝ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">10⁻²</span>
             </div>
           </div>
         </div>
 
-        <!-- 經典考題陷阱解析與直式 ICE 演算 -->
         <div class="reaction-box" style="border-left: 3px solid var(--chalk-yellow); letter-spacing:-0.2px;">
           <div class="sub-head" style="color:var(--chalk-yellow);">
             ⚠️ 經典陷阱：1 M 硫酸的 [H⁺]？
@@ -549,14 +598,14 @@
             • <b>錯誤直覺</b>：誤以為雙质子酸完全解離 [H⁺] ＝ 2 M。<br>
             • <b>微觀平衡直式 ICE 表格</b>：<br>
             <table class="role-table" style="font-size:0.72rem; margin:3px 0;">
-              <tr style="background:rgba(0,0,0,0.4);"><th>狀態</th><th>HSO₄⁻</th><th>H⁺</th><th>SO₄²⁻</th></tr>
+              <tr style="background:rgba(0,0,0,0.4);"><th>狀態</th><th>$\text{HSO}_4^-$</th><th>$\text{H}^+$</th><th>$\text{SO}_4^{2-}$</th></tr>
               <tr><td><b>初 (I)</b></td><td>1 M</td><td>1 M</td><td>0</td></tr>
               <tr style="border-bottom: 2px solid var(--chalk-yellow);"><td><b>變 (C)</b></td><td>－<i>x</i></td><td>＋<i>x</i></td><td>＋<i>x</i></td></tr>
               <tr><td><b>平 (E)</b></td><td>1 － <i>x</i></td><td>1 ＋ <i>x</i></td><td><i>x</i></td></tr>
             </table>
             • <b>精確方程式直式列式與求解</b>：<br>
             <div style="background:rgba(0,0,0,0.35); padding:5px; border-radius:4px; font-family:monospace; margin-top:3px; text-align:center; color:var(--chalk-green); font-size:0.74rem; line-height:1.5;">
-              <i>K</i><sub>a2</sub> ＝ ([H⁺][SO₄²⁻]) / [HSO₄⁻]<br>
+              <i>K</i><sub>a2</sub> ＝ ([H⁺][$\text{SO}_4^{2-}$]) / [$\text{HSO}_4^-$]<br>
               　　＝ (1 ＋ <i>x</i>)<i>x</i> / (1 － <i>x</i>) ＝ 10⁻²<br>
               ⇒ <i>x</i> ＋ <i>x</i>² ＝ 0.01(1 － <i>x</i>)<br>
               ⇒ <i>x</i>² ＋ 1.01<i>x</i> － 0.01 ＝ 0<br>
@@ -574,7 +623,7 @@
       <!-- 欄位四：亞硫酸 (H2SO3) 的兩段解離與近似技巧 -->
       <div class="col-card">
         <div class="col-title">
-          <span>四、亞硫酸 (H₂SO₃) 近似技巧</span>
+          <span>四、亞硫酸 ($\text{H}_2\text{SO}_3$) 近似技巧</span>
           <span style="font-size:0.75rem; opacity:0.8;">視為一元酸 (代入 <i>K</i><sub>a1</sub>)</span>
         </div>
 
@@ -583,11 +632,11 @@
           <div style="font-size:0.8rem; line-height:1.55; letter-spacing:-0.2px;">
             • <b>第 1 段解離</b>：<br>
             <div style="font-family:monospace; color:var(--chalk-yellow); font-size:0.76rem; text-align:center; margin:2px 0;">
-              H₂SO₃ ⇌ HSO₃⁻ ＋ H⁺ , <i>K</i><sub>a1</sub> ＝ <span class="cloze" style="font-weight:bold;">10⁻²</span>
+              $\text{H}_2\text{SO}_3$ ⇌ $\text{HSO}_3^-$ ＋ $\text{H}^+$ , <i>K</i><sub>a1</sub> ＝ <span class="cloze" style="font-weight:bold;">10⁻²</span>
             </div>
             • <b>第 2 段解離</b>：<br>
             <div style="font-family:monospace; color:var(--chalk-cyan); font-size:0.76rem; text-align:center; margin:2px 0;">
-              HSO₃⁻ ⇌ SO₃²⁻ ＋ H⁺ , <i>K</i><sub>a2</sub> ＝ <span class="cloze" style="font-weight:bold;">10⁻⁸</span>
+              $\text{HSO}_3^-$ ⇌ $\text{SO}_3^{2-}$ ＋ $\text{H}^+$ , <i>K</i><sub>a2</sub> ＝ <span class="cloze" style="font-weight:bold;">10⁻⁸</span>
             </div>
           </div>
         </div>
@@ -624,7 +673,6 @@
       <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
         @media (max-width: 900px) { div { grid-template-columns: 1fr; } }
 
-        <!-- 區塊 A：已修正第二小點 -->
         <div style="background: var(--ext-inner-box); border: 1px solid var(--card-border); border-radius: 8px; padding: 11px; font-size: 0.84rem;">
           <div style="font-weight:800; color:var(--chalk-cyan); font-size:0.9rem; margin-bottom:4px;">
             📌 A. 為什麼硫酸的第 2 段解離常數 <i>K</i><sub>a2</sub> 遠小於 <i>K</i><sub>a1</sub>？
@@ -634,21 +682,20 @@
           </p>
         </div>
 
-        <!-- 區塊 B：已修正初始濃度符號為 [H₂SO₃]₀ -->
         <div style="background: var(--ext-inner-box); border: 1px solid var(--card-border); border-radius: 8px; padding: 11px; font-size: 0.84rem;">
           <div style="font-weight:800; color:var(--chalk-orange); font-size:0.9rem; margin-bottom:4px;">
             📌 B. 多元弱酸溶液中的精確質量守恆與電荷守恆
           </div>
           <p style="font-size:0.81rem; color:var(--text-sub); line-height:1.55;">
-            以亞硫酸 $\text{H}_2\text{SO}_3$ 為例[span_1](start_span)[span_1](end_span)，當溶液達到平衡時，其硫元素的總初始濃度滿足質量守恆[span_2](start_span)[span_2](end_span)：<br>
+            以亞硫酸 $\text{H}_2\text{SO}_3$ 為例[span_0](start_span)[span_0](end_span)，當溶液達到平衡時，其硫元素的總初始濃度滿足質量守恆[span_1](start_span)[span_1](end_span)：<br>
             <div style="text-align:center; font-family:monospace; color:var(--chalk-yellow); margin:4px 0; font-size:0.78rem;">
-              [H₂SO₃]₀ ＝ [H₂SO₃] ＋ [HSO₃⁻] ＋ [SO₃²⁻]
+              [$\text{H}_2\text{SO}_3$]₀ ＝ [$\text{H}_2\text{SO}_3$] ＋ [$\text{HSO}_3^-$] ＋ [$\text{SO}_3^{2-}$]
             </div>
             同時溶液必須嚴格遵守電荷守恆定律（陰陽電荷平衡）：<br>
             <div style="text-align:center; font-family:monospace; color:var(--chalk-green); margin:4px 0; font-size:0.78rem;">
-              [H⁺] ＝ [HSO₃⁻] ＋ 2[SO₃²⁻] ＋ [OH⁻]
+              [H⁺] ＝ [$\text{HSO}_3^-$] ＋ 2[$\text{SO}_3^{2-}$] ＋ [OH⁻]
             </div>
-            當 $K_{\text{a1}} \gg K_{\text{a2}}$ 且濃度適中日時，[SO₃²⁻] 與 [OH⁻] 均極微小，故可簡化為 $[H^+] \approx [HSO_3^-]$！
+            當 $K_{\text{a1}} \gg K_{\text{a2}}$ 且濃度適中日時，[$\text{SO}_3^{2-}$] 與 [OH⁻] 均極微小，故可簡化為 $[\text{H}^+] \approx [\text{HSO}_3^-]$！
           </p>
         </div>
       </div>
@@ -705,13 +752,13 @@
       {
         id: 2,
         level: "硫酸分段解離與計算陷阱",
-        question: "在 25°C 下，關於 1.0 M 硫酸 (H₂SO₄) 水溶液之敘述，下列何者完全正確？（已知 HSO₄⁻ 之 Ka2 ＝ 10⁻²）",
+        question: "在 25°C 下，關於 1.0 M 硫酸 ($\text{H}_2\text{SO}_4$) 水溶液之敘述，下列何者完全正確？（已知 $\text{HSO}_4^-$ 之 Ka2 ＝ 10⁻²）",
         options: [
           "A. 硫酸在水中兩段解離皆完全，故 1.0 M 硫酸之 [H⁺] ＝ 2.0 M",
           "B. 硫酸第 1 段解離為強酸，第 2 段解離為弱酸，經精密平衡計算其 [H⁺] 接近 1.01 M 而非 2.0 M",
-          "C. 1.0 M 硫酸溶液中，硫酸根離子濃度 [SO₄²⁻] 等於 1.0 M",
+          "C. 1.0 M 硫酸溶液中，硫酸根離子濃度 [$\text{SO}_4^{2-}$] 等於 1.0 M",
           "D. 硫酸加水稀釋時，其 pH 值上升速率與強鹽酸完全相同",
-          "E. 硫酸第 2 段解離常數 Ka2 極大，故 HSO₄⁻ 幾乎 100% 解離"
+          "E. 硫酸第 2 段解離常數 Ka2 極大，故 $\text{HSO}_4^-$ 幾乎 100% 解離"
         ],
         answer: 1,
         explanation: "【展氏新解解析】：<br>• 硫酸第 1 段完全解離提供 1 M 氫離子，第 2 段為弱酸（Ka2 = 10⁻²），經 ICE 平衡計算微量解離後，[H⁺] ＝ 1.01 M。<br>• 故選項 B 正確，選項 A 錯誤（誤以為 [H⁺] = 2 M）。"
@@ -719,7 +766,7 @@
       {
         id: 3,
         level: "亞硫酸近似計算技巧",
-        question: "已知亞硫酸 (H₂SO₃) 之 Ka1 ＝ 10⁻²，Ka2 ＝ 10⁻⁸。請問在 1.0 M 的 H₂SO₃ 水溶液中，其氫離子濃度 [H⁺] 大約為多少？",
+        question: "已知亞硫酸 ($\text{H}_2\text{SO}_3$) 之 Ka1 ＝ 10⁻²，Ka2 ＝ 10⁻⁸。請問在 1.0 M 的 $\text{H}_2\text{SO}_3$ 水溶液中，其氫離子濃度 [H⁺] 大約為多少？",
         options: [
           "A. 2.0 M",
           "B. 1.0 M",
@@ -728,7 +775,7 @@
           "E. 10⁻⁸ M"
         ],
         answer: 2,
-        explanation: "【展氏新解解析】：<br>• 因 Ka1 (10⁻²) 遠大於 Ka2 (10⁻⁸) 超過 10⁶ 倍，第 2 段解離產生的 [H⁺] 可完全忽略。<br>• 直接將 H₂SO₃ 視為一元弱酸代入第 1 段：[H⁺] ＝ √(c · Ka1) ＝ √(1.0 × 10⁻²) ＝ 0.1 M。<br>• 故選項 C 正確。"
+        explanation: "【展氏新解解析】：<br>• 因 Ka1 (10⁻²) 遠大於 Ka2 (10⁻⁸) 超過 10⁶ 倍，第 2 段解離產生的 [H⁺] 可完全忽略。<br>• 直接將 $\text{H}_2\text{SO}_3$ 視為一元弱酸代入第 1 段：[H⁺] ＝ √(c · Ka1) ＝ √(1.0 × 10⁻²) ＝ 0.1 M。<br>• 故選項 C 正確。"
       }
     ];
 
