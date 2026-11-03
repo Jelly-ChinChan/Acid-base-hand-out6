@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【展氏新解】一元弱酸與多元酸的微觀解離計算、近似條件檢驗與硫酸亞硫酸特權</title>
+  <style>
+    :root {
+      --bg-board: #142c1f;
+      --board-frame: #3d2314;
+      --card-bg: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.16);
+      --text-main: #f1f5f9;
+      --text-sub: #cbd5e1;
+      --chalk-yellow: #fde047;
+      --chalk-cyan: #67e8f9;
+      --chalk-orange: #fdba74;
+      --chalk-green: #86efac;
+      --chalk-red: #f87171;
+      --highlight-bg: rgba(253, 224, 71, 0.18);
+      --section-box-bg: rgba(0, 0, 0, 0.22);
+      --reaction-bg: rgba(0, 0, 0, 0.35);
+      --diagram-bg: rgba(0, 0, 0, 0.28);
+      --table-th-bg: rgba(255, 255, 255, 0.1);
+      --box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+
+      /* 延伸思維專屬色調（深邃紫藍） */
+      --ext-card-bg: #131a2e;
+      --ext-card-border: #3b4261;
+      --ext-title: #c084fc;
+      --ext-badge-bg: rgba(192, 132, 252, 0.18);
+      --ext-badge-border: #a855f7;
+      --ext-inner-box: rgba(0, 0, 0, 0.3);
+    }
+
+    body.theme-paper {
+      --bg-board: #ffffff;
+      --board-frame: #94a3b8;
+      --card-bg: #f8fafc;
+      --card-border: #cbd5e1;
+      --text-main: #0f172a;
+      --text-sub: #334155;
+      --chalk-yellow: #92400e;
+      --chalk-cyan: #0284c7;
+      --chalk-orange: #c2410c;
+      --chalk-green: #15803d;
+      --chalk-red: #b91c1c;
+      --highlight-bg: #fef3c7;
+      --section-box-bg: #f1f5f9;
+      --reaction-bg: #e2e8f0;
+      --diagram-bg: #f8fafc;
+      --table-th-bg: #e2e8f0;
+      --box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+
+      --ext-card-bg: #f5f3ff;
+      --ext-card-border: #c7d2fe;
+      --ext-title: #4338ca;
+      --ext-badge-bg: #ede9fe;
+      --ext-badge-border: #6366f1;
+      --ext-inner-box: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: #08100c;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      color: var(--text-main);
+      padding: 8px;
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-wrap: pretty;
+    }
+
+    body.theme-paper { background-color: #e2e8f0; }
+
+    .toolbar {
+      width: 100%;
+      max-width: 1440px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      padding: 10px 16px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(8px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    body.theme-paper .toolbar {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .toolbar-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-tag {
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .toolbar-title {
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 680px) {
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .toolbar-title-wrap {
+        margin-bottom: 4px;
+      }
+      .btn-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        width: 100%;
+      }
+      .btn {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    .btn {
+      padding: 7px 14px;
+      font-size: 0.86rem;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text-main);
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #2563eb !important;
+      color: #ffffff !important;
+      border-color: #3b82f6 !important;
+    }
+
+    .board-container {
+      width: 100%;
+      max-width: 1440px;
+      background-color: var(--bg-board);
+      border: 8px solid var(--board-frame);
+      border-radius: 14px;
+      box-shadow: var(--box-shadow);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+      transition: background-color 0.25s, border-color 0.25s;
+    }
+
+    @media (max-width: 600px) {
+      .board-container {
+        border-width: 5px;
+        padding: 8px;
+      }
+    }
+
+    .board-header {
+      text-align: center;
+      border-bottom: 2px dashed var(--card-border);
+      padding-bottom: 10px;
+    }
+
+    .main-title-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .board-header h1 {
+      font-size: clamp(1.25rem, 4vw, 1.65rem);
+      letter-spacing: 1.5px;
+      color: var(--chalk-yellow);
+      font-weight: 900;
+    }
+
+    .badge-pill {
+      font-size: 0.78rem;
+      background: var(--highlight-bg);
+      color: var(--chalk-cyan);
+      padding: 3px 8px;
+      border-radius: 20px;
+      border: 1px solid var(--chalk-cyan);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 1100px) {
+      .board-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 680px) {
+      .board-grid { grid-template-columns: 1fr; }
+    }
+
+    .col-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .col-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--chalk-yellow);
+      border-bottom: 2px solid var(--chalk-cyan);
+      padding-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .section-box {
+      background: var(--section-box-bg);
+      border-left: 3px solid var(--chalk-yellow);
+      padding: 9px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+
+    .sub-head {
+      font-weight: 900;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+    body.theme-paper .sub-head {
+      color: #1e293b;
+    }
+
+    .reaction-box {
+      background: var(--reaction-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 9px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Noto Sans TC", monospace;
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+
+    .chem-eq-hero {
+      font-weight: 900;
+      color: var(--chalk-green);
+      font-size: clamp(0.88rem, 3vw, 1.02rem);
+      text-align: center;
+      padding: 6px 4px;
+      margin: 4px 0 6px 0;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      border: 1px dashed var(--card-border);
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .chem-eq-hero::-webkit-scrollbar { display: none; }
+
+    .role-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6px 0;
+      font-size: 0.8rem;
+      background: rgba(0, 0, 0, 0.22);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+    }
+    .role-table th, .role-table td {
+      padding: 5px 6px;
+      text-align: center;
+      border: 1px solid var(--card-border);
+    }
+    .role-table th {
+      background: var(--table-th-bg);
+      font-weight: 800;
+    }
+
+    .note-pill {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--highlight-bg);
+      color: var(--chalk-yellow);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .mnemonic-box {
+      background: rgba(253, 224, 71, 0.12);
+      border: 1px dashed var(--chalk-yellow);
+      border-radius: 6px;
+      padding: 6px 8px;
+      margin-top: 5px;
+    }
+
+    /* 延伸思維專區 */
+    .extension-container {
+      background: var(--ext-card-bg);
+      border: 2px solid var(--ext-card-border);
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    .extension-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 2px solid var(--ext-badge-border);
+      padding-bottom: 8px;
+    }
+
+    .extension-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--ext-title);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .extension-badge {
+      font-size: 0.78rem;
+      background: var(--ext-badge-bg);
+      border: 1px solid var(--ext-badge-border);
+      color: var(--ext-title);
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 800;
+    }
+
+    .extension-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .extension-grid { grid-template-columns: 1fr; }
+    }
+
+    .ext-box {
+      background: var(--ext-inner-box);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 11px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .ext-box ul {
+      padding-left: 16px;
+      margin: 4px 0;
+    }
+
+    .ext-box li {
+      margin-bottom: 4px;
+    }
+
+    /* 挖空與顯現樣式 */
+    .cloze {
+      transition: background-color 0.2s ease, color 0.2s ease;
+      cursor: default;
+    }
+
+    body.cloze-mode .cloze {
+      background: #334155 !important;
+      color: transparent !important;
+      border-radius: 4px;
+      padding: 1px 6px;
+      margin: 0 1px;
+      cursor: pointer !important;
+      user-select: none;
+      border: 1px dashed var(--chalk-yellow) !important;
+      display: inline-block;
+      vertical-align: baseline;
+      min-width: 1.5em;
+    }
+
+    body.cloze-mode.theme-paper .cloze {
+      background: #cbd5e1 !important;
+      border: 1px dashed #475569 !important;
+    }
+
+    body.cloze-mode .cloze.revealed {
+      background: var(--highlight-bg) !important;
+      color: inherit !important;
+      border: 1px solid var(--chalk-green) !important;
+      cursor: pointer !important;
+      animation: popReveal 0.2s ease-out;
+    }
+
+    @keyframes popReveal {
+      0% { transform: scale(0.96); }
+      100% { transform: scale(1); }
+    }
+
+    /* 測驗 Modal 視窗 */
+    .quiz-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+      display: none;
+      overflow-y: auto;
+      padding: 16px 8px;
+    }
+
+    .quiz-modal.active {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .quiz-card-container {
+      background: #0f172a;
+      border: 2px solid #334155;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 860px;
+      color: #f8fafc;
+      padding: 16px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    body.theme-paper .quiz-card-container {
+      background: #ffffff;
+      color: #0f172a;
+      border-color: #cbd5e1;
+    }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #475569;
+      padding-bottom: 10px;
+    }
+
+    .quiz-stats-bar {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.06);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      align-items: center;
+    }
+
+    body.theme-paper .quiz-stats-bar {
+      background: #f1f5f9;
+    }
+
+    .question-block {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    body.theme-paper .question-block {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+    }
+
+    .q-badge {
+      font-size: 0.72rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #3b82f6;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .option-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .opt-btn {
+      text-align: left;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #475569;
+      color: inherit;
+      cursor: pointer;
+      font-size: 0.86rem;
+      transition: all 0.15s;
+    }
+
+    body.theme-paper .opt-btn {
+      background: #ffffff;
+      border-color: #cbd5e1;
+    }
+
+    .opt-btn.hover:not(:disabled) {
+      border-color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    .opt-btn.correct {
+      background: #14532d !important;
+      border-color: #22c55e !important;
+      color: #86efac !important;
+      font-weight: bold;
+    }
+
+    body.theme-paper .opt-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+    }
+
+    .opt-btn.wrong {
+      background: #7f1d1d !important;
+      border-color: #ef4444 !important;
+      color: #fca5a5 !important;
+      font-weight: bold;
+    }
+
+    body.theme-paper .opt-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+
+    .expl-box {
+      margin-top: 4px;
+      padding: 8px;
+      background: rgba(0,0,0,0.3);
+      border-left: 3px solid #f59e0b;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      display: none;
+      line-height: 1.5;
+    }
+
+    body.theme-paper .expl-box {
+      background: #f1f5f9;
+    }
+
+    .expl-box.show {
+      display: block;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer {
+      text-align: center;
+      padding: 14px 0 6px 0;
+      border-top: 1px dashed var(--card-border);
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .footer-copyright {
+      font-weight: 800;
+      color: var(--chalk-yellow);
+      letter-spacing: 1px;
+    }
+
+    @media print {
+      .toolbar, .quiz-modal { display: none !important; }
+      body { background: #ffffff !important; padding: 0 !important; }
+      .board-container { border: none !important; box-shadow: none !important; max-width: 100% !important; padding: 0 !important; }
+      .board-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; }
+      @page { size: A4 landscape; margin: 5mm; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 控制工具列 -->
+  <div class="toolbar">
+    <div class="toolbar-title-wrap">
+      <span class="brand-tag">展氏新解</span>
+      <span class="toolbar-title">一元酸與多元酸的微觀解離計算、近似條件檢驗與硫酸亞硫酸特權</span>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="openQuiz()">📝 進入隨堂測驗</button>
+      <button class="btn" onclick="toggleTheme()">🎨 切換黑板/紙本模式</button>
+      <button class="btn" onclick="toggleCloze()">✏️ 課堂挖空複習</button>
+      <button class="btn" onclick="window.print()">🖨️ 列印 A4 講義</button>
+    </div>
+  </div>
+
+  <div class="board-container">
+    
+    <!-- 頂部黑板標題 -->
+    <div class="board-header">
+      <div class="main-title-wrap">
+        <span class="brand-tag" style="font-size:0.95rem; padding:3px 8px;">展氏新解</span>
+        <h1>計算酸性解離度與多元酸微觀解析</h1>
+        <span class="badge-pill">一元弱酸近似檢驗 · 稀釋效應 Ka 推導 · 硫酸強酸特權 · 亞硫酸 Ka1/Ka2 級數突躍</span>
+      </div>
+    </div>
+
+    <!-- 主板書四大欄位 -->
+    <div class="board-grid">
+
+      <!-- 第 1 欄：一元弱酸基本計算與 0.1 M 醋酸範例 -->
+      <div class="col-card">
+        <div class="col-title">
+          <span>一、一元弱酸與醋酸計算實戰</span>
+          <span style="font-size:0.75rem; opacity:0.8;">[H⁺] ＝ √(c·Ka) 與解離百分率</span>
+        </div>
+
+        <div class="section-box">
+          <div class="sub-head">1. 核心公式與近似條件</div>
+          <div class="chem-eq-hero" style="font-size:0.82rem; color:var(--chalk-yellow); margin:4px 0;">
+            [H⁺] ＝ <span class="cloze" style="color:var(--chalk-yellow);">√(c · <i>K</i><sub>a</sub>)</span>　｜　α ＝ <span class="cloze" style="color:var(--chalk-cyan);">√(<i>K</i><sub>a</sub> / c)</span>
+          </div>
+          <div style="font-size:0.81rem; line-height:1.55;">
+            • <b>範例設定</b>：設醋酸 $\text{CH}_3\text{COOH} \rightleftharpoons \text{CH}_3\text{COO}^- + \text{H}^+$，<span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;"><i>K</i><sub>a</sub> ＝ 10⁻⁵</span>。<br>
+            • <b>① 0.1 M 醋酸之 [H⁺] 計算</b>：<br>
+            $\text{[H}^+\text{]} = \sqrt{0.1 \times 10^{-5}} = \sqrt{10^{-6}} = \mathbf{10^{-3}\text{ M}}$。<br>
+            👉 <b>檢驗近似合理性</b>：$10^{-3} \ll 0.1$，故假設成立！<br>
+            • <b>② 解離百分率 α (%)</b>：<br>
+            $\alpha = \frac{10^{-3}}{0.1} = 10^{-2} =$ <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">1%</span>。<br>
+            • <b>③ 0.1 M 醋酸 vs 鹽酸比較</b>：<br>
+            醋酸 $\text{[H}^+\text{]} = 10^{-3}\text{ M}$；而同濃度強酸鹽酸 <span class="cloze" style="color:var(--chalk-red); font-weight:bold;">$\text{[H}^+\text{]} = \text{[HCl]}_0 = 0.1\text{ M}$</span>。
+          </div>
+        </div>
+
+        <div class="note-pill" style="display:block; text-align:center;">
+          💡 展哥口訣：根號 c 乘 Ka 迅速估算，小於初始濃度 5% 即可安心省略！
+        </div>
+      </div>
+
+      <!-- 第 2 欄：未知酸反推 Ka 與濃度改變/稀釋效應 -->
+      <div class="col-card">
+        <div class="col-title">
+          <span>二、未知酸反推 Ka 與稀釋計算</span>
+          <span style="font-size:0.75rem; opacity:0.8;">pH 反推與 0.2 M 變動實戰</span>
+        </div>
+
+        <div class="section-box">
+          <div class="sub-head">1. 已知 pH 反推酸解離常數 Ka</div>
+          <div style="font-size:0.81rem; line-height:1.6;">
+            • <b>題目條件</b>：某未知一元弱酸在 <span class="cloze" style="color:var(--chalk-cyan);">0.1 M</span> 時，测得 <span class="cloze" style="color:var(--chalk-yellow);">pH ＝ 2</span>。<br>
+            • <b>推導過程</b>：<br>
+            由 pH ＝ 2 知 $\text{[H}^+\text{]} = 10^{-2}\text{ M}$。<br>
+            代入公式：$\text{[H}^+\text{]}^2 = c \cdot K_a$<br>
+            $(10^{-2})^2 = 0.1 \cdot K_a$<br>
+            $10^{-4} = 0.1 \cdot K_a \implies$ <span class="cloze" style="color:var(--chalk-green); font-weight:bold;"><i>K</i><sub>a</sub> ＝ 10⁻³</span>。<br>
+            • <b>2. 改成 0.2 M 濃度之 pH 計算</b>：<br>
+            若將此弱酸濃度調為 $0.2\text{ M}$：<br>
+            $\text{[H}^+\text{]} = \sqrt{0.2 \times 10^{-3}} = \sqrt{2 \times 10^{-4}} = \sqrt{2} \times 10^{-2}\text{ M}$。<br>
+            $\text{pH} = -\log(\sqrt{2} \times 10^{-2}) = 2 - \log\sqrt{2} =$ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">1.85</span>。
+          </div>
+        </div>
+
+        <div class="note-pill" style="display:block; text-align:center;">
+          📌 展哥重點：掌握 pH ＝ -log[H⁺]，利用平方關係即可瞬間破解未知酸 Ka！
+        </div>
+      </div>
+
+      <!-- 第 3 欄：多元酸之王：硫酸的強酸特權與第二段 ICE 計算 -->
+      <div class="col-card">
+        <div class="col-title">
+          <span>三、多元酸：硫酸的強酸特權</span>
+          <span style="font-size:0.75rem; opacity:0.8;">H₂SO₄ 第一段完全解離 vs Ka2</span>
+        </div>
+
+        <div class="section-box">
+          <div class="sub-head">1. 硫酸不只解離一次的微觀真相</div>
+          <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-red); margin:3px 0;">
+            $\text{H}_2\text{SO}_4 \longrightarrow \text{HSO}_4^- + \text{H}^+$ (<i>K</i><sub>a1</sub> ＝ ∞)
+          </div>
+          <div style="font-size:0.8rem; line-height:1.5;">
+            • <b>第一段</b>：強酸完全解離 ($K_{a1} = \infty$)。1 M 硫酸瞬間提供 $1\text{ M}$ 的 $\text{H}^+$ 與 $1\text{ M}$ 的 $\text{HSO}_4^-$。<br>
+            • <b>第二段 (部分解離)</b>：
+            <div class="chem-eq-hero" style="font-size:0.76rem; color:var(--chalk-yellow); margin:2px 0;">
+              $\text{HSO}_4^- \rightleftharpoons \text{H}^+ + \text{SO}_4^{2-}$ (<i>K</i><sub>a2</sub> ＝ 10⁻²)
+            </div>
+            • <b>ICE 表格精確推導 ($1\text{ M}$ 硫酸)</b>：
+            <table class="role-table" style="font-size:0.75rem; margin:4px 0;">
+              <thead>
+                <tr><th>狀態</th><th>$\text{HSO}_4^-$</th><th>$\text{H}^+$</th><th>$\text{SO}_4^{2-}$</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>初</td><td>1 M</td><td>1 M</td><td>0</td></tr>
+                <tr style="border-bottom: 2px solid var(--chalk-yellow);"><td>變</td><td>$-x$</td><td>$+x$</td><td>$+x$</td></tr>
+                <tr><td>平</td><td>$1-x$</td><td>$1+x$</td><td>$x$</td></tr>
+              </tbody>
+            </table>
+            代入 $K_{a2} = \frac{(1+x)x}{1-x} = 10^{-2}$，解得 <span class="cloze" style="color:var(--chalk-green);"><i>x</i> ＝ 0.01 M</span>。<br>
+            故總 $\text{[H}^+\text{]} = 1 + 0.01 =$ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">1.01 M</span>。<br>
+            👉 <b>結論</b>：硫酸在水中非常像只解離 1 個 $\text{H}^+$（高濃度時以第一段為主）。
+          </div>
+        </div>
+
+        <div class="note-pill" style="display:block; text-align:center;">
+          💡 展哥口訣：硫酸第一段無限大，第二段 Ka2=0.01，高濃度直接視為一元強酸！
+        </div>
+      </div>
+
+      <!-- 第 4 欄：亞硫酸的雙重解離與一元化近似特權 -->
+      <div class="col-card">
+        <div class="col-title">
+          <span>四、亞硫酸：多元弱酸的化繁為簡</span>
+          <span style="font-size:0.75rem; opacity:0.8;">H₂SO₃ 之 Ka1 與 Ka2 級數懸殊</span>
+        </div>
+
+        <div class="section-box">
+          <div class="sub-head">1. 亞硫酸的兩段解離常數</div>
+          <div style="font-size:0.81rem; line-height:1.55;">
+            • <b>第一段解離</b>：$\text{H}_2\text{SO}_3 \rightleftharpoons \text{HSO}_3^- + \text{H}^+$，<span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;"><i>K</i><sub>a1</sub> ＝ 10⁻²</span>。<br>
+            • <b>第二段解離</b>：$\text{HSO}_3^- \rightleftharpoons \text{SO}_3^{2-} + \text{H}^+$，<span class="cloze" style="color:var(--chalk-orange); font-weight:bold;"><i>K</i><sub>a2</sub> ＝ 10⁻⁸</span>。<br>
+            • <b>實戰考題：請問 1 M $\text{H}_2\text{SO}_3$ 的 $\text{[H}^+\text{]}$ 為何？</b><br>
+            👉 <b>大考秒殺技巧</b>：因為 $K_{a1} \ (10^{-2}) \gg K_{a2} \ (10^{-8})$，第二段解離產生的 $\text{H}^+$ 少到可以完全忽略！<br>
+            因此，我們可以直接把亞硫酸<b>視為單質子弱酸</b>，只代入第一段 $K_{a1}$ 計算：<br>
+            <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-yellow); margin:4px 0;">
+              $\text{[H}^+\text{]} = \sqrt{c \cdot K_{a1}} = \sqrt{1 \times 10^{-2}} =$ <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">0.1 M</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-pill" style="display:block; text-align:center;">
+          📌 展哥重點：多元弱酸求氫離子濃度時，若 Ka1 遠大於 Ka2，直接代入 Ka1 當作一元酸算即可！
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= 展氏新解：延伸思維獨立區塊 ================= -->
+    <div class="extension-container">
+      <div class="extension-header">
+        <div class="extension-title">
+          <span>🧠 【展氏新解】延伸思維：從「黑板計算」跨入「多元酸精確解聯立方程與同离子效應」</span>
+        </div>
+        <span class="extension-badge">多元酸精確聯立 · 第二段解離貢獻率 · 緩衝與同離子抑制</span>
+      </div>
+
+      <div class="extension-grid">
+        <!-- 區塊 A：多元酸第二段解離是否真能完全忽略？ -->
+        <div class="ext-box">
+          <div style="font-weight:800; color:var(--chalk-cyan); font-size:0.92rem;">
+            📌 A. 為什麼多元弱酸（如 $\text{H}_2\text{SO}_3$）求 $\text{[H}^+\text{]}$ 可以只看 $K_{a1}$？
+          </div>
+          <p style="font-size:0.82rem; color:var(--text-sub);">
+            從化學平衡的「同離子效應 (Common-ion effect)」來透視微觀本質：
+          </p>
+          <ul style="font-size:0.81rem; line-height:1.6;">
+            <li><b>第一段主導</b>：$K_{a1} = 10^{-2}$ 產生的 $\text{[H}^+\text{]}$ 已經高達 $0.1\text{ M}$。</li>
+            <li><b>同離子壓抑</b>：當進行第二段解離時 ($\text{HSO}_3^- \rightleftharpoons \text{H}^+ + \text{SO}_3^{2-}$)，溶液中已經充滿了第一段解離出來的龐大 $\text{[H}^+]$ ($0.1\text{ M}$)。</li>
+            <li><b>平衡左移</b>：龐大的 $\text{[H}^+]$ 形成強烈的同離子壓抑，使第二段解離平衡嚴重向左倒退，因此 $\text{[SO}_3^{2-}\text{]}$ 幾乎等於 $K_{a2} \, (10^{-8}\text{ M})$，對總 $\text{[H}^+\text{]}$ 的貢獻率低於百萬分之一，完全可以安全忽略！</li>
+          </ul>
+        </div>
+
+        <!-- 區塊 B：當硫酸濃度極度稀釋時，第二段解離還能忽略嗎？ -->
+        <div class="ext-box">
+          <div style="font-weight:800; color:var(--chalk-orange); font-size:0.92rem;">
+            📌 B. 【極限思維】：當硫酸濃度極度稀釋（如 $10^{-5}\text{ M}$）時會發生什麼事？
+          </div>
+          <p style="font-size:0.82rem; color:var(--text-sub);">
+            我們常說「硫酸第一段完全解離、第二段 $K_{a2} = 0.01$」，但在極端低濃度下：
+          </p>
+          <div style="background:var(--section-box-bg); padding:8px; border-radius:6px; border-left:3px solid var(--chalk-orange); font-size:0.81rem; line-height:1.55;">
+            • <b>迷思破除</b>：當硫酸被大量加水稀釋至 $c < 10^{-4}\text{ M}$ 時，第一段產生的 $\text{[H}^+]$ 極少，同離子效應消失。<br>
+            • <b>微觀真相</b>：此時 $\text{HSO}_4^-$ 會發生顯著的第二段解離，不能再簡單視為強酸！必須透過嚴格解聯立方程式（考慮電荷守恆 $\text{[H}^+] = \text{[HSO}_4^-\text{]} + 2\text{[SO}_4^{2-}\text{]}$）來精確求解。
+          </div>
+        </div>
+
+        <!-- 區塊 C：草酸與磷酸系統的多質子計算通則 -->
+        <div class="ext-box">
+          <div style="font-weight:800; color:var(--chalk-yellow); font-size:0.92rem;">
+            📌 C. 【類題延伸】：草酸 ($\text{H}_2\text{C}_2\text{O}_4$) 與磷酸 ($\text{H}_3\text{PO}_4$) 的階梯解離
+          </div>
+          <p style="font-size:0.82rem; color:var(--text-sub);">
+            大考經常考查多元酸各粒子濃度大小排序，其萬用通則為：
+          </p>
+          <div style="font-size:0.81rem; line-height:1.6; background:var(--section-box-bg); padding:8px; border-radius:6px;">
+            • 以二元弱酸 $\text{H}_2\text{A}$ 為例：<br>
+            👉 <b>未解離分子濃度最大</b>：$\text{[H}_2\text{A}\text{]} > \text{[H}^+\text{]} > \text{[HA}^-\text{]} \gg \text{[A}^{2-}\text{]}$。<br>
+            👉 <b>第二段共軛鹼極少</b>：$\text{[A}^{2-}\text{]}$ 數值上恆等於或極接近第二段解離常數 <span style="color:var(--chalk-yellow);"><i>K</i><sub>a2</sub></span>！這是在考場上秒殺選擇題的絕對心法。
+          </div>
+        </div>
+
+        <!-- 區塊 D：近似條件失效時的數學解方 -->
+        <div class="ext-box">
+          <div style="font-weight:800; color:var(--chalk-green); font-size:0.92rem;">
+            📌 D. 【數學嚴密性】：當弱酸解離度大於 5% 時的求根公式
+          </div>
+          <p style="font-size:0.82rem; color:var(--text-sub);">
+            當酸很稀或 $K_{a}$ 很大時，分母不能省略 $x$，此時必須回歸一元二次方程式：
+          </p>
+          <div style="font-size:0.81rem; line-height:1.6; background:var(--section-box-bg); padding:8px; border-radius:6px;">
+            • 完整平衡式：$\frac{x^2}{c - x} = K_a \implies x^2 + K_a x - K_a c = 0$<br>
+            • 根公式求解：
+            <div style="text-align:center; margin:4px 0; color:var(--chalk-yellow); font-weight:bold;">
+              $x = \frac{-K_a + \sqrt{K_a^2 + 4K_a c}}{2}$
+            </div>
+            掌握此式，無論酸有多稀、解離度多高，所有計算題皆能迎刃而解！
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 頁尾版權與計數器 -->
+    <div class="footer">
+      <div>展氏新解 · 一元酸與多元酸的微觀解離計算、近似條件檢驗與硫酸亞硫酸特權</div>
+      <div class="footer-copyright">© 展氏新解 版權所有</div>
+      <div style="font-size:0.78rem; opacity:0.85; margin-top:4px; display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.06); padding:2px 10px; border-radius:12px; border:1px solid var(--card-border);">
+        <span>👀 累計點閱：</span>
+        <span id="pageViews" style="color:var(--chalk-yellow); font-weight:bold;">載入中...</span>
+        <span>次</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 獨立隨堂測驗視窗 (Modal) -->
+  <div id="quizModal" class="quiz-modal">
+    <div class="quiz-card-container">
+      <div class="quiz-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span class="brand-tag">展氏新解</span>
+          <h2 style="font-size:1.15rem; font-weight:900;">一元與多元酸解離計算即時檢測系統</h2>
+        </div>
+        <button class="btn" style="background:#dc2626; color:#fff; border:none;" onclick="closeQuiz()">✕ 關閉返回講義</button>
+      </div>
+
+      <div class="quiz-stats-bar">
+        <span>已作答：<b id="answeredCount">0</b> / <span id="totalCount">3</span> 題</span>
+        <span>答對率：<b id="accuracyRate" style="color:var(--chalk-yellow);">0%</b></span>
+        <button class="btn" style="padding:2px 8px; font-size:0.75rem;" onclick="resetQuiz()">🔄 全部重置</button>
+      </div>
+
+      <div id="quizList" style="display:flex; flex-direction:column; gap:12px;"></div>
+    </div>
+  </div>
+
+  <script>
+    const QUESTION_BANK = [
+      {
+        id: 1,
+        level: "一元弱酸與未知酸反推",
+        question: "已知某一元弱酸在 0.1 M 時的 pH = 2。若將此弱酸濃度稀釋或調整為 0.2 M 時，其氫離子濃度 [H⁺] 與 pH 值分別為何？",
+        options: [
+          "A. [H⁺] = 0.2 M, pH = 0.70",
+          "B. [H⁺] = √2 × 10⁻² M, pH = 1.85",
+          "C. [H⁺] = 2 × 10⁻³ M, pH = 2.70",
+          "D. [H⁺] = 10⁻² M, pH = 2.00",
+          "E. [H⁺] = 0.1 M, pH = 1.00"
+        ],
+        answer: 1,
+        explanation: "【展氏新解解析】：<br>• <b>步驟一：求 Ka</b>：當 0.1 M 時 pH = 2，故 [H⁺] = 10⁻² M。代入 Ka = [H⁺]² / c = (10⁻²)² / 0.1 = 10⁻³。<br>• <b>步驟二：求 0.2 M時之 [H⁺]</b>：[H⁺] = √(c · Ka) = √(0.2 × 10⁻³) = √(2 × 10⁻⁴) = √2 × 10⁻² M。<br>• <b>步驟三：求 pH</b>：pH = -log(√2 × 10⁻²) = 2 - log(√2) = 2 - 0.15 = 1.85。故選項 B 完全正確！"
+      },
+      {
+        id: 2,
+        level: "多元酸：硫酸的微觀計算",
+        question: "在 25°C 下，有關 1.0 M 硫酸 (H₂SO₄) 水溶液之微觀粒子濃度與性質敘述，下列何者正確？（已知 HSO₄⁻ 之 Ka2 = 10⁻²）",
+        options: [
+          "A. 第一段完全解離，故溶液中 [H⁺] 恰好等於 1.0 M，完全沒有 HSO₄⁻ 分子殘留",
+          "B. 透過第二段解離平衡計算（Ka2 = 10⁻²），解離出的氫离子濃度 x 約為 0.01 M",
+          "C. 硫酸溶液中總 [H⁺] 濃度剛好等於 2.0 M",
+          "D. 因 Ka2 很大，故硫酸在水中表現得像弱酸",
+          "E. 硫酸第二段解離產生的 [SO₄²⁻] 濃度大於 0.5 M"
+        ],
+        answer: 1,
+        explanation: "【展氏新解解析】：<br>• <b>選項 A 錯誤</b>：第一段完全解離產生 1 M H⁺ 與 1 M HSO₄⁻，HSO₄⁻ 還會進一步解離。<br>• <b>選項 B 正確</b>：代入第二段 ICE 計算：Ka2 = [(1+x)x] / (1-x) = 10⁻²，解得 x = 0.01 M，故第二段確實貢獻了 0.01 M 的 H⁺ 與 SO₄²⁻。<br>• <b>選項 C 錯誤</b>：總 [H⁺] = 1 + 0.01 = 1.01 M，並非 2.0 M。<br>• <b>選項 D、E 錯誤</b>：硫酸第一段為強酸，總體表現為強酸特性，SO₄²⁻ 濃度約為 0.01 M。"
+      },
+      {
+        id: 3,
+        level: "多元弱酸的化繁為簡 (亞硫酸)",
+        question: "已知亞硫酸 (H₂SO₃) 之 Ka1 = 10⁻², Ka2 = 10⁻⁸。請問在 1.0 M 的 H₂SO₃ 水溶液中，其氫離子濃度 [H⁺] 大約為何？",
+        options: [
+          "A. 1.0 M",
+          "B. 0.1 M",
+          "C. 10⁻⁴ M",
+          "D. 10⁻⁸ M",
+          "E. 1.1 M"
+        ],
+        answer: 1,
+        explanation: "【展氏新解解析】：<br>• <b>多元弱酸特權</b>：因為亞硫酸的第一段解離常數 Ka1 (10⁻²) 遠大於第二段 Ka2 (10⁻⁸)，且濃度夠大，第二段解離產生的 H⁺ 極少，可完全忽略。<br>• <b>計算</b>：直接視為一元弱酸代入 Ka1 計算：[H⁺] = √(c · Ka1) = √(1.0 × 10⁻²) = 10⁻¹ = <b>0.1 M</b>。故選項 B 正確！"
+      }
+    ];
+
+    window.updateQuestionBank = function(newBank) {
+      if (Array.isArray(newBank)) {
+        QUESTION_BANK.length = 0;
+        QUESTION_BANK.push(...newBank);
+        renderQuiz();
+        console.log("✅ 題庫已更新！共載入 " + newBank.length + " 題。");
+      }
+    };
+
+    const userAnswers = {};
+
+    function renderQuiz() {
+      const container = document.getElementById('quizList');
+      container.innerHTML = '';
+      document.getElementById('totalCount').innerText = QUESTION_BANK.length;
+
+      QUESTION_BANK.forEach((q, idx) => {
+        const qCard = document.createElement('div');
+        qCard.className = 'question-block';
+        qCard.id = `qCard_${q.id}`;
+
+        let optsHtml = q.options.map((opt, optIdx) => `
+          <button class="opt-btn" id="btn_${q.id}_${optIdx}" onclick="selectAnswer(${q.id}, ${optIdx}, ${q.answer})">
+            ${opt}
+          </button>
+        `).join('');
+
+        qCard.innerHTML = `
+          <div style="margin-bottom: 6px;">
+            <span class="q-badge" style="display: inline-block; margin-bottom: 4px;">${q.level}</span>
+            <div style="font-weight: 800; font-size: 0.92rem; line-height: 1.5;">第 ${idx + 1} 題：${q.question}</div>
+          </div>
+          <div class="option-list">
+            ${optsHtml}
+          </div>
+          <div class="expl-box" id="expl_${q.id}">
+            ${q.explanation}
+          </div>
+        `;
+        container.appendChild(qCard);
+      });
+      updateStats();
+    }
+
+    function selectAnswer(qid, selectedIdx, correctIdx) {
+      if (userAnswers[qid] !== undefined) return;
+
+      userAnswers[qid] = selectedIdx;
+      const q = QUESTION_BANK.find(item => item.id === qid);
+
+      q.options.forEach((_, optIdx) => {
+        const btn = document.getElementById(`btn_${qid}_${optIdx}`);
+        btn.disabled = true;
+        if (optIdx === correctIdx) {
+          btn.classList.add('correct');
+          btn.innerHTML += ' ✓ (正確答案)';
+        }
+      });
+
+      if (selectedIdx !== correctIdx) {
+        const wrongBtn = document.getElementById(`btn_${qid}_${selectedIdx}`);
+        wrongBtn.classList.add('wrong');
+        wrongBtn.innerHTML += ' ✕ (您的選擇)';
+      }
+
+      document.getElementById(`expl_${qid}`).classList.add('show');
+      updateStats();
+    }
+
+    function updateStats() {
+      const answered = Object.keys(userAnswers).length;
+      document.getElementById('answeredCount').innerText = answered;
+
+      let correctCount = 0;
+      Object.keys(userAnswers).forEach(qid => {
+        const q = QUESTION_BANK.find(item => item.id == qid);
+        if (q && userAnswers[qid] === q.answer) {
+          correctCount++;
+        }
+      });
+
+      const rate = answered === 0 ? 0 : Math.round((correctCount / answered) * 100);
+      document.getElementById('accuracyRate').innerText = `${rate}% (${correctCount}/${answered})`;
+    }
+
+    function resetQuiz() {
+      Object.keys(userAnswers).forEach(key => delete userAnswers[key]);
+      renderQuiz();
+    }
+
+    function openQuiz() {
+      document.getElementById('quizModal').classList.add('active');
+      renderQuiz();
+    }
+
+    function closeQuiz() {
+      document.getElementById('quizModal').classList.remove('active');
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('theme-paper');
+    }
+
+    function toggleCloze() {
+      const isCloze = document.body.classList.toggle('cloze-mode');
+      document.querySelectorAll('.cloze').forEach(el => {
+        el.classList.remove('revealed');
+      });
+    }
+
+    // 點擊單一挖空區域個別顯現
+    document.addEventListener('click', function(e) {
+      if (!document.body.classList.contains('cloze-mode')) return;
+
+      const clozeTarget = e.target.closest('.cloze');
+      if (clozeTarget) {
+        e.stopPropagation();
+        clozeTarget.classList.toggle('revealed');
+      }
+    });
+
+    renderQuiz();
+
+    // 點閱計數器
+    (function recordPageView() {
+      const counterEl = document.getElementById("pageViews");
+      const timestamp = new Date().getTime();
+      const pageKey = "zhan-acid-calculation-polyprotic-v1";
+      const apiUrl = `https://api.counterapi.dev/v1/zhan-chemistry/${pageKey}/up?t=${timestamp}`;
+
+      fetch(apiUrl)
+        .then(res => {
+          if (!res.ok) throw new Error("API 狀態碼異常");
+          return res.json();
+        })
+        .then(data => {
+          if (data && typeof data.count !== "undefined") {
+            counterEl.innerText = Number(data.count).toLocaleString();
+          } else {
+            updateLocalFallback();
+          }
+        })
+        .catch(err => {
+          console.warn("線上計數異常，切換至本地增量：", err);
+          updateLocalFallback();
+        });
+
+      function updateLocalFallback() {
+        let count = parseInt(localStorage.getItem("local_pv_" + pageKey) || "0", 10);
+        count += 1;
+        localStorage.setItem("local_pv_" + pageKey, count);
+        counterEl.innerText = count.toLocaleString();
+      }
+    })();
+  </script>
+</body>
+</html>
