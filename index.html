@@ -292,6 +292,22 @@
     }
     .role-table th { background: var(--table-th-bg); font-weight: 800; }
 
+    /* 金色發光特效樣式 */
+    .gold-glow {
+      background: rgba(253, 224, 71, 0.25) !important;
+      color: var(--chalk-yellow) !important;
+      font-weight: 900 !important;
+      text-shadow: 0 0 8px rgba(253, 224, 71, 0.8), 0 0 15px rgba(253, 224, 71, 0.5);
+      border: 1.5px solid var(--chalk-yellow) !important;
+      box-shadow: 0 0 10px rgba(253, 224, 71, 0.4);
+      animation: goldPulse 2s infinite alternate;
+    }
+
+    @keyframes goldPulse {
+      0% { box-shadow: 0 0 5px rgba(253, 224, 71, 0.4); }
+      100% { box-shadow: 0 0 14px rgba(253, 224, 71, 0.8); }
+    }
+
     .note-pill {
       display: inline-block;
       padding: 2px 7px;
@@ -517,9 +533,12 @@
             由 pH ＝ 2.0 知 <span class="cloze" style="color:var(--chalk-green);">[H⁺] ＝ 10⁻² M</span>。<br>
             代入公式：[H⁺] ＝ √(<i>c</i> · <i>K</i><sub>a</sub>)<br>
             <div style="background:rgba(0,0,0,0.3); padding:4px 6px; border-radius:4px; font-family:monospace; margin:4px 0; text-align:center; color:var(--chalk-green);">
-              (10⁻²)² ＝ 0.1 × <i>K</i><sub>a</sub><br>
-              10⁻⁴ ＝ 0.1 × <i>K</i><sub>a</sub><br>
-              ⇒ <i>K</i><sub>a</sub> ＝ <span class="cloze" style="font-weight:bold; color:var(--chalk-yellow);">10⁻³</span>
+              (10⁻²)²<br>
+              　＝ 0.1 × <i>K</i><sub>a</sub><br>
+              10⁻⁴<br>
+              　＝ 0.1 × <i>K</i><sub>a</sub><br>
+              ⇒ <i>K</i><sub>a</sub><br>
+              　＝ <span class="cloze" style="font-weight:bold; color:var(--chalk-yellow);">10⁻³</span>
             </div>
           </div>
         </div>
@@ -538,12 +557,14 @@
             <div style="margin-top: 5px; background: rgba(30, 64, 175, 0.25); border: 1.5px solid #38bdf8; padding: 6px; border-radius: 6px;">
               <div style="font-weight:800; color:#7dd3fc; font-size:0.78rem;">方法一（先求 [H⁺] 再用 <i>b</i> － log <i>a</i>）</div>
               <div style="font-family:monospace; margin-top:3px; font-size: 0.77rem; line-height: 1.5;">
-                [H⁺] ＝ √(0.2 × 10⁻³)<br>
-                　　 ＝ √(2 × 10⁻⁴)<br>
-                　　 ＝ <span style="color:var(--chalk-green);">√2 × 10⁻² M</span>[span_2](start_span)[span_2](end_span)<br>
+                [H⁺]<br>
+                　＝ √(0.2 × 10⁻³)<br>
+                　＝ √(2 × 10⁻⁴)<br>
+                　＝ <span style="color:var(--chalk-green);">√2 × 10⁻² M</span>[span_2](start_span)[span_2](end_span)<br>
                 💡 <i>複習：若 [H⁺] ＝ a × 10⁻<sup>b</sup>，則 pH ＝ b － log a</i>[span_3](start_span)[span_3](end_span)<br>
-                pH ＝ －log(√2 × 10⁻²)<br>
-                　 ＝ <span style="color:var(--chalk-yellow); font-weight:bold;">2 － ½log 2 ≈ 1.85</span>[span_4](start_span)[span_4](end_span)
+                pH<br>
+                　＝ －log(√2 × 10⁻²)<br>
+                　＝ <span style="color:var(--chalk-yellow); font-weight:bold;">2 － ½log 2 ≈ 1.85</span>[span_4](start_span)[span_4](end_span)
               </div>
             </div>
 
@@ -551,12 +572,14 @@
             <div style="margin-top: 6px; background: rgba(22, 101, 52, 0.25); border: 1.5px solid #22c55e; padding: 6px; border-radius: 6px;">
               <div style="font-weight:800; color:#86efac; font-size:0.78rem;">方法二（根號直接提出法）</div>
               <div style="font-family:monospace; margin-top:3px; font-size: 0.77rem; line-height: 1.5;">
-                [H⁺] ＝ <span style="color:var(--chalk-cyan);">√(0.2 × 10⁻³)</span>[span_5](start_span)[span_5](end_span)<br>
-                　　 ＝ √(2 × 10⁻⁴)[span_6](start_span)[span_6](end_span)<br>
-                pH ＝ －log(2 × 10⁻⁴)<sup>½</sup>[span_7](start_span)[span_7](end_span)<br>
-                　 ＝ <span style="color:var(--chalk-yellow); font-weight:bold;">½ [ －log(2 × 10⁻⁴) ]</span>[span_8](start_span)[span_8](end_span)<br>
-                　 ＝ <span style="color:var(--chalk-yellow); font-weight:bold;">½ ( 4 － log 2 )</span>[span_9](start_span)[span_9](end_span)<br>
-                　 ＝ <span style="color:var(--chalk-yellow); font-weight:bold;">2 － ½log 2 ≈ 1.85</span>[span_10](start_span)[span_10](end_span)
+                [H⁺]<br>
+                　＝ <span style="color:var(--chalk-cyan);">√(0.2 × 10⁻³)</span>[span_5](start_span)[span_5](end_span)<br>
+                　＝ √(2 × 10⁻⁴)[span_6](start_span)[span_6](end_span)<br>
+                pH<br>
+                　＝ －log(2 × 10⁻⁴)<sup>½</sup>[span_7](start_span)[span_7](end_span)<br>
+                　＝ <span style="color:var(--chalk-yellow); font-weight:bold;">½ [ －log(2 × 10⁻⁴) ]</span>[span_8](start_span)[span_8](end_span)<br>
+                　＝ <span style="color:var(--chalk-yellow); font-weight:bold;">½ ( 4 － log 2 )</span>[span_9](start_span)[span_9](end_span)<br>
+                　＝ <span style="color:var(--chalk-yellow); font-weight:bold;">2 － ½log 2 ≈ 1.85</span>[span_10](start_span)[span_10](end_span)
               </div>
             </div>
 
@@ -568,14 +591,14 @@
         </div>
       </div>
 
-      <!-- 欄位三：多元酸：硫酸 (H2SO4) 分段解離與計算陷阱（已調整順序與直式對齊） -->
+      <!-- 欄位三：多元酸：硫酸 (H2SO4) 分段解離與計算陷阱 -->
       <div class="col-card">
         <div class="col-title">
           <span>三、多元酸：硫酸 (H<sub>2</sub>SO<sub>4</sub>)</span>
           <span style="font-size:0.75rem; opacity:0.8;">1M 硫酸 [H⁺] 計算陷阱</span>
         </div>
 
-        <!-- 1. 先拋出問題 -->
+        <!-- 1. 核心問題 -->
         <div class="section-box" style="border-left-color: var(--chalk-yellow);">
           <div class="sub-head" style="color:var(--chalk-yellow);">📋 核心問題</div>
           <div style="font-size: 0.81rem; line-height: 1.55; font-weight: bold; color: var(--chalk-cyan);">
@@ -583,22 +606,22 @@
           </div>
         </div>
 
-        <!-- 2. 經典陷阱（錯誤直覺） -->
+        <!-- 2. 經典陷阱（直接當成二元酸計算） -->
         <div class="reaction-box" style="border-left: 3px solid var(--chalk-red); letter-spacing:-0.3px;">
           <div class="sub-head" style="color:var(--chalk-red);">
             ⚠️ 經典陷阱（錯誤直覺）
           </div>
           <div style="font-size:0.79rem; line-height:1.5;">
-            • 誤以為硫酸是二元強酸，直接一次完全解離產生 2 個 H⁺ 與 SO<sub>4</sub><sup>2-</sup>：<br>
+            • 直接把硫酸當成二元酸去計算直式 ICE 表格（方程式物種與直式計算對齊），硫酸 H<sub>2</sub>SO<sub>4</sub> 直接一次完全解離產生 2 個 H⁺ 以及 SO<sub>4</sub><sup>2-</sup>：<br>
             <div style="text-align:center; color:var(--chalk-yellow); margin:3px 0; font-weight:bold;">
               H<sub>2</sub>SO<sub>4</sub> → 2H⁺ ＋ SO<sub>4</sub><sup>2-</sup>
             </div>
             • <b>直式 ICE 計算</b>：<br>
             <table class="role-table" style="font-size:0.72rem; margin:3px 0;">
-              <tr style="background:rgba(0,0,0,0.4);"><th>狀態</th><th>H<sub>2</sub>SO<sub>4</sub></th><th>H⁺</th><th>SO<sub>4</sub><sup>2-</sup></th></tr>
-              <tr><td><b>初 (I)</b></td><td>1 M</td><td>0</td><td>0</td></tr>
+              <tr style="background:rgba(0,0,0,0.4);"><th>狀態</th><th>H<sub>2</sub>SO<sub>4</sub></th><th>2H⁺</th><th>SO<sub>4</sub><sup>2-</sup></th></tr>
+              <tr><td><b>初 (I)</b></td><td>1 M</td><td>0 M</td><td>0 M</td></tr>
               <tr style="border-bottom: 2px solid var(--chalk-red);"><td><b>變 (C)</b></td><td>－1 M</td><td>＋2 M</td><td>＋1 M</td></tr>
-              <tr><td><b>平 (E)</b></td><td>0</td><td>2 M</td><td>1 M</td></tr>
+              <tr><td><b>平 (E)</b></td><td>0 M</td><td>2 M</td><td>1 M</td></tr>
             </table>
             <div style="text-align:center; color:var(--chalk-red); font-weight:bold; margin-top:3px;">
               誤以為 [H⁺] ＝ 2 M（❌ 錯誤！）
@@ -606,49 +629,74 @@
           </div>
         </div>
 
-        <!-- 3. 正確的分段解離：第一段 -->
+        <!-- 3. 正確觀念：第一段解離 (Ka1 = 無限大) -->
         <div class="section-box" style="border-left-color: var(--chalk-green);">
-          <div class="sub-head" style="color:var(--chalk-green);">✅ 正確觀念：分段解離</div>
+          <div class="sub-head" style="color:var(--chalk-green);">✅ 正確觀念：分段解離（第 1 段）</div>
           <div style="font-size:0.8rem; line-height:1.55; letter-spacing:-0.3px;">
-            • <b>第 1 段解離</b>（強酸，完全解離產生 1 個 H⁺ 與 HSO<sub>4</sub>⁻）：<br>
-            <div class="chem-eq-hero" style="font-size:0.75rem; color:var(--chalk-green); margin:2px 0;">
-              H<sub>2</sub>SO<sub>4</sub> → HSO<sub>4</sub>⁻ ＋ H⁺
+            • 第一段先完全解離 1 個 H⁺。硫酸 H<sub>2</sub>SO<sub>4</sub> 只解離產生 1 個 H⁺ 以及 HSO<sub>4</sub>⁻（<i>K</i><sub>a1</sub> ＝ ∞）：<br>
+            <div class="chem-eq-hero" style="font-size:0.73rem; color:var(--chalk-green); margin:2px 0;">
+              H<sub>2</sub>SO<sub>4</sub> → HSO<sub>4</sub>⁻ ＋ H⁺ , <i>K</i><sub>a1</sub> ＝ ∞
             </div>
+            • <b>直式 ICE 計算</b>（方程式物種與直式計算對齊）：<br>
             <table class="role-table" style="font-size:0.72rem; margin:2px 0;">
               <tr style="background:rgba(0,0,0,0.4);"><th>狀態</th><th>H<sub>2</sub>SO<sub>4</sub></th><th>HSO<sub>4</sub>⁻</th><th>H⁺</th></tr>
-              <tr><td><b>初 (I)</b></td><td>1 M</td><td>0</td><td>0</td></tr>
+              <tr><td><b>初 (I)</b></td><td>1 M</td><td>0 M</td><td>0 M</td></tr>
               <tr style="border-bottom: 2px solid var(--chalk-green);"><td><b>變 (C)</b></td><td>－1 M</td><td>＋1 M</td><td>＋1 M</td></tr>
-              <tr><td><b>平 (E)</b></td><td>0</td><td>1 M</td><td>1 M</td></tr>
+              <tr><td><b>平 (E)</b></td><td>0 M</td><td>1 M</td><td>1 M</td></tr>
             </table>
           </div>
         </div>
 
-        <!-- 4. 正確的分段解離：第二段（考慮同離子效應） -->
+        <!-- 4. 正確觀念：第二段解離（考慮共同離子效應，H+ 的 1 M 標成金色發光） -->
         <div class="reaction-box" style="border-left: 3px solid var(--chalk-cyan); letter-spacing:-0.3px;">
           <div class="sub-head" style="color:var(--chalk-cyan);">
-            • 第 2 段解離（弱酸，考慮同離子效應）：
+            • 第 2 段解離（弱酸，考慮共同離子效應）：
           </div>
           <div style="font-size:0.79rem; line-height:1.5;">
             <div class="chem-eq-hero" style="font-size:0.74rem; color:var(--chalk-cyan); margin:2px 0;">
               HSO<sub>4</sub>⁻ ⇌ H⁺ ＋ SO<sub>4</sub><sup>2-</sup> , <i>K</i><sub>a2</sub> ＝ 10⁻²
             </div>
-            • <b>微觀平衡直式 ICE 表格</b>（注意 H⁺ 初始已有 1 M）：<br>
+            • <b>微觀平衡直式 ICE 表格</b>（注意 H⁺ 初始已有來自第一段的 <span class="gold-glow" style="padding: 1px 4px; border-radius: 3px; display: inline-block;">1 M</span>）：<br>
             <table class="role-table" style="font-size:0.72rem; margin:3px 0;">
               <tr style="background:rgba(0,0,0,0.4);"><th>狀態</th><th>HSO<sub>4</sub>⁻</th><th>H⁺</th><th>SO<sub>4</sub><sup>2-</sup></th></tr>
-              <tr><td><b>初 (I)</b></td><td>1 M</td><td>1 M</td><td>0</td></tr>
+              <tr><td><b>初 (I)</b></td><td>1 M</td><td><span class="gold-glow" style="padding: 1px 6px; border-radius: 3px; display: inline-block;">1 M</span></td><td>0 M</td></tr>
               <tr style="border-bottom: 2px solid var(--chalk-cyan);"><td><b>變 (C)</b></td><td>－<i>x</i></td><td>＋<i>x</i></td><td>＋<i>x</i></td></tr>
               <tr><td><b>平 (E)</b></td><td>1 － <i>x</i></td><td>1 ＋ <i>x</i></td><td><i>x</i></td></tr>
             </table>
-            • <b>精確方程式直式列式與求解</b>：<br>
-            <div style="background:rgba(0,0,0,0.35); padding:5px; border-radius:4px; font-family:monospace; margin-top:3px; text-align:center; color:var(--chalk-green); font-size:0.74rem; line-height:1.5;">
-              <i>K</i><sub>a2</sub> ＝ ([H⁺][SO<sub>4</sub><sup>2-</sup>]) / [HSO<sub>4</sub>⁻]<br>
-              　　＝ (1 ＋ <i>x</i>)<i>x</i> / (1 － <i>x</i>)<br>
-              　　＝ 10⁻²<br>
-              ⇒ <i>x</i> ＋ <i>x</i>² ＝ 0.01(1 － <i>x</i>)<br>
-              ⇒ <i>x</i>² ＋ 1.01<i>x</i> － 0.01 ＝ 0<br>
-              解得 <i>x</i> ≈ 0.01 M<br>
-              故 [H⁺] ＝ 1 ＋ <i>x</i> ＝ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">1.01 M (≠ 2 M)</span>
+            
+            <div style="margin-top: 6px; font-weight: bold; color: var(--chalk-yellow);">• 求解的部分分成兩種方法：</div>
+
+            <!-- 方法一：公式解色塊 -->
+            <div style="margin-top: 4px; background: rgba(30, 64, 175, 0.25); border: 1.5px solid #38bdf8; padding: 6px; border-radius: 6px;">
+              <div style="font-weight:800; color:#7dd3fc; font-size:0.76rem;">方法一（精確公式解）</div>
+              <div style="font-family:monospace; margin-top:2px; font-size: 0.72rem; line-height: 1.4;">
+                <i>K</i><sub>a2</sub><br>
+                　＝ ([H⁺][SO<sub>4</sub><sup>2-</sup>]) / [HSO<sub>4</sub>⁻]<br>
+                　＝ (1 ＋ <i>x</i>)<i>x</i> / (1 － <i>x</i>) ＝ 10⁻²<br>
+                ⇒ <i>x</i> ＋ <i>x</i>² ＝ 0.01(1 － <i>x</i>)<br>
+                ⇒ <i>x</i>² ＋ 1.01<i>x</i> － 0.01 ＝ 0<br>
+                解得 <i>x</i> ≈ 0.01 M<br>
+                故 [H⁺] ＝ 1 ＋ <i>x</i> ＝ 1.01 M
+              </div>
             </div>
+
+            <!-- 方法二：展哥推薦近似解色塊 -->
+            <div style="margin-top: 6px; background: rgba(180, 83, 9, 0.3); border: 2px solid var(--chalk-yellow); padding: 6px; border-radius: 6px; box-shadow: 0 0 10px rgba(253, 224, 71, 0.3);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                <span style="font-weight:900; color:var(--chalk-yellow); font-size:0.78rem;">⭐ 方法二（展哥推薦：快速近似解）</span>
+                <span style="background:var(--chalk-yellow); color:#000; font-size:0.65rem; font-weight:900; padding:1px 5px; border-radius:3px;">🔥 推薦必學</span>
+              </div>
+              <div style="font-family:monospace; margin-top:2px; font-size: 0.72rem; line-height: 1.4; color: #f8fafc;">
+                因 <i>x</i> 值很小，可做<b>近似解</b>：<br>
+                令分子 1 ＋ <i>x</i> ≈ 1<br>
+                令分母 1 － <i>x</i> ≈ 1<br>
+                代入常數式：<br>
+                <i>K</i><sub>a2</sub> ＝ <span style="color:var(--chalk-cyan);">(1 · <i>x</i>) / 1</span> ＝ 10⁻²<br>
+                ⇒ <b><i>x</i> ＝ 10⁻² ＝ 0.01 M</b>（計算極快！）<br>
+                故 [H⁺] ＝ 1 ＋ <i>x</i> ＝ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">1.01 M</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -686,9 +734,10 @@
             • <b>核心簡化技巧</b>：因 <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;"><i>K</i><sub>a1</sub> ≫ <i>K</i><sub>a2</sub></span>（相差 10⁶ 倍以上），第 2 段產生的氫離子可完全忽略！<br>
             • <b>計算方式</b>：直接將其<b>視為一元弱酸</b>代入 <i>K</i><sub>a1</sub>：
             <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-green); margin:3px 0;">
-              [H⁺] ＝ √(<i>c</i> · <i>K</i><sub>a1</sub>)<br>
-              　　 ＝ √(1 × 10⁻²)<br>
-              　　 ＝ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">0.1 M</span>
+              [H⁺]<br>
+              　＝ √(<i>c</i> · <i>K</i><sub>a1</sub>)<br>
+              　＝ √(1 × 10⁻²)<br>
+              　＝ <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">0.1 M</span>
             </div>
           </div>
         </div>
@@ -702,17 +751,16 @@
 
     <!-- 延伸思維專區 -->
     <div class="extension-container" style="background: var(--ext-card-bg); border: 2px solid var(--ext-card-border); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 12px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; border-bottom: 2px solid var(--ext-badge-border); padding-bottom: 8px;">
-        <div style="font-size: 1.05rem; font-weight: 900; color: var(--ext-title); display: flex; align-items: center; gap: 8px;">
+      <div class="extension-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; border-bottom: 2px solid var(--ext-badge-border); padding-bottom: 8px;">
+        <div class="extension-title" style="font-size: 1.05rem; font-weight: 900; color: var(--ext-title); display: flex; align-items: center; gap: 8px;">
           <span>🧠 【展氏新解】延伸思維：多元酸多重平衡與共軛酸鹼對的質子競逐</span>
         </div>
-        <span style="font-size: 0.78rem; background: rgba(192,132,252,0.18); border: 1px solid #a855f7; color: var(--ext-title); padding: 2px 8px; border-radius: 20px; font-weight: 800;">多元質子平衡 · 質子守恆 · 緩衝溶液先修</span>
+        <span class="extension-badge" style="font-size: 0.78rem; background: rgba(192,132,252,0.18); border: 1px solid #a855f7; color: var(--ext-title); padding: 2px 8px; border-radius: 20px; font-weight: 800;">多元質子平衡 · 質子守恆 · 緩衝溶液先修</span>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
-        @media (max-width: 900px) { div { grid-template-columns: 1fr; } }
-
-        <div style="background: var(--ext-inner-box); border: 1px solid var(--card-border); border-radius: 8px; padding: 11px; font-size: 0.84rem;">
+      <div class="extension-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+        
+        <div class="ext-box" style="background: var(--ext-inner-box); border: 1px solid var(--card-border); border-radius: 8px; padding: 11px; font-size: 0.84rem;">
           <div style="font-weight:800; color:var(--chalk-cyan); font-size:0.9rem; margin-bottom:4px;">
             📌 A. 為什麼硫酸的第 2 段解離常數 <i>K</i><sub>a2</sub> 遠小於 <i>K</i><sub>a1</sub>？
           </div>
@@ -721,7 +769,7 @@
           </p>
         </div>
 
-        <div style="background: var(--ext-inner-box); border: 1px solid var(--card-border); border-radius: 8px; padding: 11px; font-size: 0.84rem;">
+        <div class="ext-box" style="background: var(--ext-inner-box); border: 1px solid var(--card-border); border-radius: 8px; padding: 11px; font-size: 0.84rem;">
           <div style="font-weight:800; color:var(--chalk-orange); font-size:0.9rem; margin-bottom:4px;">
             📌 B. 多元弱酸溶液中的精確質量守恆與電荷守恆
           </div>
@@ -737,6 +785,7 @@
             當 <i>K</i><sub>a1</sub> ≫ <i>K</i><sub>a2</sub> 且濃度適中日時，[SO<sub>3</sub><sup>2-</sup>] 與 [OH⁻] 均極微小，故可簡化為 [H⁺] ≈ [HSO<sub>3</sub>⁻]！
           </p>
         </div>
+
       </div>
     </div>
 
