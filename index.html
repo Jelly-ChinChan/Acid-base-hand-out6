@@ -737,11 +737,11 @@
           </div>
         </div>
 
-        <!-- 2. 速解水中第二酸根的濃度 [SO32-] ＝ ？ -->
+        <!-- 2. 速解水中第二酸根的濃度 [SO32-] ＝ ？ (已將 HSO3- 與 H+ 的 x 標示為金光特效) -->
         <div class="section-box" style="border-left-color: var(--chalk-cyan);">
           <div class="sub-head" style="color:var(--chalk-cyan);">2. 速解水中第二酸根的濃度 [SO<sub>3</sub><sup>2-</sup>] ＝ ？</div>
           <div style="font-size:0.8rem; line-height:1.55; letter-spacing:-0.3px;">
-            • <b>兩階段解離與 ICE 嚴格推導</b>：<br>
+            • <b>兩階段解離與 ICE 嚴格推導（共同離子效應）</b>：<br>
             <b>① 第 1 段解離（主導 [H<sup>+</sup>] 與 [HSO<sub>3</sub><sup>-</sup>]）</b>：
             <table class="role-table" style="font-size:0.72rem; margin:3px 0;">
               <tr style="background:rgba(0,0,0,0.4);"><th>狀態</th><th>H<sub>2</sub>SO<sub>3</sub></th><th>HSO<sub>3</sub><sup>-</sup></th><th>H<sup>+</sup></th></tr>
@@ -750,22 +750,27 @@
               <tr><td><b>平 (E)</b></td><td>1 － <i>x</i></td><td><i>x</i></td><td><i>x</i></td></tr>
             </table>
             （由 <i>K</i><sub>a1</sub> 可解得 <i>x</i> ≈ 0.1 M）<br><br>
-            <b>② 第 2 段解離（引入代數 －<i>y</i>）</b>：
+            <b>② 第 2 段解離（共同離子主導，引入代數 －<i>y</i>）</b>：
             <table class="role-table" style="font-size:0.72rem; margin:3px 0;">
               <tr style="background:rgba(0,0,0,0.4);"><th>狀態</th><th>HSO<sub>3</sub><sup>-</sup></th><th>H<sup>+</sup></th><th>SO<sub>3</sub><sup>2-</sup></th></tr>
-              <tr><td><b>初 (I)</b></td><td><i>x</i></td><td><i>x</i></td><td>0 M</td></tr>
+              <tr><td><b>初 (I)</b></td><td><span class="gold-glow" style="padding: 1px 4px; border-radius: 3px; display: inline-block;"><i>x</i></span></td><td><span class="gold-glow" style="padding: 1px 4px; border-radius: 3px; display: inline-block;"><i>x</i></span></td><td>0 M</td></tr>
               <tr style="border-bottom: 2px solid var(--chalk-cyan);"><td><b>變 (C)</b></td><td>－<i>y</i></td><td>＋<i>y</i></td><td>＋<i>y</i></td></tr>
-              <tr><td><b>平 (E)</b></td><td><i>x</i> － <i>y</i></td><td><i>x</i> ＋ <i>y</i></td><td><i>y</i></td></tr>
+              <tr><td><b>平 (E)</b></td><td><span class="gold-glow" style="padding: 1px 4px; border-radius: 3px; display: inline-block;"><i>x</i></span> － <i>y</i></td><td><span class="gold-glow" style="padding: 1px 4px; border-radius: 3px; display: inline-block;"><i>x</i></span> ＋ <i>y</i></td><td><i>y</i></td></tr>
             </table>
-            • <b>代數推導與近似</b>：<br>
-            <i>K</i><sub>a2</sub> ＝ ((<i>x</i> ＋ <i>y</i>) · <i>y</i>) / (<i>x</i> － <i>y</i>)<br>
-            因 <i>y</i> 極小（<i>K</i><sub>a2</sub> ＝ 10<sup>-8</sup>），故 <i>x</i> ＋ <i>y</i> ≈ <i>x</i>，<i>x</i> － <i>y</i> ≈ <i>x</i>。<br>
-            代入可得：<br>
+            • <b>代數推導與共同離子近似</b>：<br>
+            <i>K</i><sub>a2</sub> ＝ ((<span class="gold-glow" style="padding: 1px 3px; border-radius: 2px; display: inline-block;"><i>x</i></span> ＋ <i>y</i>) · <i>y</i>) / (<span class="gold-glow" style="padding: 1px 3px; border-radius: 2px; display: inline-block;"><i>x</i></span> － <i>y</i>)<br>
+            因第一段解離產生的 <span class="gold-glow" style="padding: 1px 3px; border-radius: 2px; display: inline-block;"><i>x</i></span> 遠大於第二段解離的 <i>y</i>（<i>K</i><sub>a2</sub> ＝ 10<sup>-8</sup>），故 <span class="gold-glow" style="padding: 1px 3px; border-radius: 2px; display: inline-block;"><i>x</i></span> ＋ <i>y</i> ≈ <span class="gold-glow" style="padding: 1px 3px; border-radius: 2px; display: inline-block;"><i>x</i></span>，<span class="gold-glow" style="padding: 1px 3px; border-radius: 2px; display: inline-block;"><i>x</i></span> － <i>y</i> ≈ <span class="gold-glow" style="padding: 1px 3px; border-radius: 2px; display: inline-block;"><i>x</i></span>。<br>
+            上下互消代入可得：<br>
             <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-cyan); margin:3px 0; font-family:monospace;">
-              <i>K</i><sub>a2</sub> ≈ (<i>x</i> · <i>y</i>) / <i>x</i> ＝ <i>y</i> ＝ [SO<sub>3</sub><sup>2-</sup>]
+              <i>K</i><sub>a2</sub> ≈ (<span class="gold-glow" style="padding: 1px 3px; border-radius: 2px; display: inline-block;"><i>x</i></span> · <i>y</i>) / <span class="gold-glow" style="padding: 1px 3px; border-radius: 2px; display: inline-block;"><i>x</i></span> ＝ <i>y</i> ＝ [SO<sub>3</sub><sup>2-</sup>]
             </div>
             ⇒ <b>[SO<sub>3</sub><sup>2-</sup>] ≈ <i>K</i><sub>a2</sub> ＝ 10<sup>-8</sup> M</b>
           </div>
+        </div>
+
+        <!-- 📌 展哥結論歸納 -->
+        <div class="note-pill" style="display:block; text-align:center; line-height: 1.5; padding: 6px 8px; margin-top: 8px;">
+          📌 <b>展哥結論</b>：亞硫酸水溶液中的亞硫酸根離子濃度 $[\text{SO}_3^{2-}]$ 恆由第一段解離產生的大量 $\text{H}^+$ 與 $\text{HSO}_3^-$ 共同離子主導壓抑，使上下代數 $x$ 互消，因此<b>第二酸根濃度精確且直接等於第二段解離常數 $K_{\text{a2}}$</b>！
         </div>
 
       </div>
