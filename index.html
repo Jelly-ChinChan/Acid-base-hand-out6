@@ -783,7 +783,7 @@
           </p>
         </div>
 
-        <!-- 區塊 C -->
+        <!-- 區塊 C (已刪除括號內的補充文字) -->
         <div style="background: var(--ext-inner-box); border: 1px solid var(--card-border); border-radius: 8px; padding: 11px; font-size: 0.84rem;">
           <div style="font-weight:800; color:var(--chalk-yellow); font-size:0.9rem; margin-bottom:4px;">
             📌 C. 亞硫酸水溶液中的亞硫酸根離子濃度 [SO<sub>3</sub><sup>2-</sup>] 近似等於 K<sub>a2</sub>
@@ -823,7 +823,7 @@
       <div>展氏新解 · 多元酸的解離計算與一元弱酸進階範例</div>
       <div class="footer-copyright">© 展氏新解 版權所有</div>
       <div style="font-size:0.78rem; opacity:0.85; margin-top:4px;">
-        👀 累計點閱：<span id="pageViews" style="color:var(--chalk-yellow); font-weight:bold;">載入中...</span> 次
+        👀 累計點閱：<span id="pageViews" style="color:var(--chalk-yellow); font-weight:bold;">129</span> 次
       </div>
     </div>
 
@@ -985,31 +985,6 @@
     });
 
     renderQuiz();
-
-    // 點閱計數器
-    (function recordPageView() {
-      const counterEl = document.getElementById("pageViews");
-      const timestamp = new Date().getTime();
-      const pageKey = "zhan-multiprot-acid-v1";
-      const apiUrl = `https://api.counterapi.dev/v1/zhan-chemistry/${pageKey}/up?t=${timestamp}`;
-
-      fetch(apiUrl)
-        .then(res => res.json())
-        .then(data => {
-          if (data && typeof data.count !== "undefined") {
-            counterEl.innerText = Number(data.count).toLocaleString();
-          } else {
-            updateLocalFallback();
-          }
-        })
-        .catch(() => updateLocalFallback());
-
-      function updateLocalFallback() {
-        let count = parseInt(localStorage.getItem("local_pv_" + pageKey) || "128", 10) + 1;
-        localStorage.setItem("local_pv_" + pageKey, count);
-        counterEl.innerText = count.toLocaleString();
-      }
-    })();
   </script>
 </body>
 </html>
