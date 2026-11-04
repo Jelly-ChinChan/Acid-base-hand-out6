@@ -323,17 +323,8 @@
       width: 100%;
       background: var(--diagram-bg);
       border-radius: 8px;
-      padding: 6px 4px;
-      text-align: center;
+      padding: 8px;
       border: 1px solid var(--card-border);
-    }
-
-    .diagram-wrap svg {
-      width: 100%;
-      max-width: 280px;
-      height: auto;
-      margin: 0 auto;
-      display: block;
     }
 
     /* 挖空模式 */
@@ -498,25 +489,23 @@
           </div>
         </div>
 
-        <!-- 完美還原 SVG 微觀濃度對比圖 -->
-        <div class="diagram-wrap" style="padding: 8px 6px;">
-          <div style="font-size: 0.78rem; font-weight: 800; color: var(--chalk-cyan); margin-bottom: 4px;">
+        <!-- 採用絕對不會跑版的 HTML 彈性格子排版 -->
+        <div class="diagram-wrap">
+          <div style="font-size: 0.78rem; font-weight: 800; color: var(--chalk-cyan); margin-bottom: 6px; text-align: center;">
             【微觀濃度對比】：0.1 M 醋酸 vs 強酸
           </div>
-          <svg viewBox="0 0 260 90">
-            <g transform="translate(10, 5)">
-              <rect x="0" y="0" width="110" height="75" rx="6" fill="rgba(248,113,113,0.12)" stroke="#f87171" stroke-width="1.2"/>
-              <text x="55" y="16" font-size="8.5" font-weight="900" text-anchor="middle" fill="#f87171">強酸 HCl (0.1M)</text>
-              <text x="55" y="38" font-size="8px" font-weight="800" text-anchor="middle" fill="#fde047">[H<sup>+</sup>] ＝ 0.1 M</text>
-              <text x="55" y="56" font-size="8px" font-weight="800" text-anchor="middle" fill="#67e8f9">α ＝ 100% (完全)</text>
-            </g>
-            <g transform="translate(135, 5)">
-              <rect x="0" y="0" width="110" height="75" rx="6" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-width="1.2"/>
-              <text x="55" y="16" font-size="8.5" font-weight="900" text-anchor="middle" fill="#38bdf8">弱酸 (0.1M)</text>
-              <text x="55" y="38" font-size="8px" font-weight="800" text-anchor="middle" fill="#fde047">[H<sup>+</sup>] ＝ 10<sup>-3</sup> M</text>
-              <text x="55" y="56" font-size="8px" font-weight="800" text-anchor="middle" fill="#86efac">α ＝ 1% (部分)</text>
-            </g>
-          </svg>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+            <div style="background: rgba(248,113,113,0.12); border: 1.2px solid #f87171; border-radius: 6px; padding: 6px; text-align: center;">
+              <div style="font-size: 0.78rem; font-weight: 900; color: #f87171;">強酸 HCl (0.1M)</div>
+              <div style="font-size: 0.75rem; font-weight: 800; color: var(--chalk-yellow); margin-top: 3px;">[H<sup>+</sup>] ＝ 0.1 M</div>
+              <div style="font-size: 0.73rem; font-weight: 800; color: var(--chalk-cyan); margin-top: 2px;">α ＝ 100% (完全)</div>
+            </div>
+            <div style="background: rgba(56,189,248,0.12); border: 1.2px solid #38bdf8; border-radius: 6px; padding: 6px; text-align: center;">
+              <div style="font-size: 0.78rem; font-weight: 900; color: #38bdf8;">弱酸 (0.1M)</div>
+              <div style="font-size: 0.75rem; font-weight: 800; color: var(--chalk-yellow); margin-top: 3px;">[H<sup>+</sup>] ＝ 10<sup>-3</sup> M</div>
+              <div style="font-size: 0.73rem; font-weight: 800; color: var(--chalk-green); margin-top: 2px;">α ＝ 1% (部分)</div>
+            </div>
+          </div>
         </div>
 
         <div class="note-pill" style="display:block; text-align:center;">
@@ -559,7 +548,7 @@
             ⚠️ <b>關鍵觀念</b>：同一種酸的 <i>K</i><sub>a</sub> 絕不會受到濃度改變而影響，故此題繼續沿用前一題的 <b><i>K</i><sub>a</sub> ＝ 10<sup>-3</sup></b>！
           </div>
           <div style="font-size:0.8rem; line-height:1.55;">
-            • 若改將此弱酸配成 <span class="cloze" style="color:var(--chalk-yellow);">0.2 M</span>[span_3](start_span)[span_3](end_span)，其 pH 為何？<br>
+            • 若改將此弱酸配成 <span class="cloze" style="color:var(--chalk-yellow);">0.2 M</span>[span_0](start_span)[span_0](end_span)，其 pH 為何？<br>
             
             <!-- 方法一色塊 -->
             <div style="margin-top: 5px; background: rgba(30, 64, 175, 0.25); border: 1.5px solid #38bdf8; padding: 6px; border-radius: 6px;">
@@ -777,7 +766,7 @@
           </div>
         </div>
 
-        <!-- 📌 展哥結論歸納 (純淨 HTML，無任何 LaTeX 亂碼) -->
+        <!-- 📌 展哥結論歸納 -->
         <div class="note-pill" style="display:block; text-align:center; line-height: 1.5; padding: 6px 8px; margin-top: 8px;">
           📌 <b>展哥結論</b>：亞硫酸水溶液中的亞硫酸根離子濃度 [SO<sub>3</sub><sup>2-</sup>] 恆由第一段解離產生的大量 H<sup>+</sup> 與 HSO<sub>3</sub><sup>-</sup> 共同離子主導壓抑，使上下代數 <i>x</i> 互消，因此<b>第二酸根濃度精確且直接等於第二段解離常數 <i>K</i><sub>a2</sub></b>！
         </div>
