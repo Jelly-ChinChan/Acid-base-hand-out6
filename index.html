@@ -456,8 +456,8 @@
           <div class="sub-head">1. 口訣複習與基礎常數</div>
           <div style="background: rgba(253,224,71,0.1); border: 1px dashed var(--chalk-yellow); padding: 5px; border-radius: 4px; margin-bottom: 6px; font-size: 0.78rem;">
             🎯 <b>上次口訣複習</b>：<br>
-            • 計算 [H⁺] 採 → <b style="color:var(--chalk-yellow);">「氫乘」</b> [H⁺]＝√(<i>c</i>·<i>K</i><sub>a</sub>)<br>
-            • 計算解離度採 → <b style="color:var(--chalk-cyan);">「趴下C」</b> α%＝√(<i>K</i><sub>a</sub>/<i>c</i>)
+            • 計算 [H⁺] 採 → <b style="color:var(--chalk-yellow);"><span>「氫乘」</span></b> [H⁺]＝√(<i>c</i>·<i>K</i><sub>a</sub>)<br>
+            • 計算解離度採 → <b style="color:var(--chalk-cyan);"><span>「趴下C」</span></b> α%＝√(<i>K</i><sub>a</sub>/<i>c</i>)
           </div>
 
           <div class="chem-eq-hero">
@@ -717,18 +717,23 @@
           </div>
         </div>
 
-        <!-- 1. 亞硫酸的兩段解離常數 -->
+        <!-- 1. 由亞硫酸的兩段解離常數求 [H⁺] (已將考題大招與展哥口訣整併至此框內) -->
         <div class="section-box" style="border-left-color: var(--chalk-cyan);">
-          <div class="sub-head" style="color:var(--chalk-cyan);">1. 亞硫酸的兩段解離常數</div>
+          <div class="sub-head" style="color:var(--chalk-cyan);">1. 由亞硫酸的兩段解離常數求 [H⁺]</div>
           <div style="font-size:0.8rem; line-height:1.55; letter-spacing:-0.3px;">
-            • <b>第 1 段解離</b>：<br>
-            <div style="font-family:monospace; color:var(--chalk-yellow); font-size:0.76rem; text-align:center; margin:2px 0;">
-              H<sub>2</sub>SO<sub>3</sub> ⇌ HSO<sub>3</sub>⁻ ＋ H⁺ , <i>K</i><sub>a1</sub> ＝ <span class="cloze" style="font-weight:bold;">10⁻²</span>
+            • <b>兩段解離常數</b>：<br>
+            <div style="font-family:monospace; color:var(--chalk-yellow); font-size:0.74rem; text-align:center; margin:2px 0;">
+              H<sub>2</sub>SO<sub>3</sub> ⇌ HSO<sub>3</sub>⁻ ＋ H⁺ , <i>K</i><sub>a1</sub> ＝ 10⁻²<br>
+              HSO<sub>3</sub>⁻ ⇌ SO<sub>3</sub><sup>2-</sup> ＋ H⁺ , <i>K</i><sub>a2</sub> ＝ 10⁻⁸
             </div>
-            • <b>第 2 段解離</b>：<br>
-            <div style="font-family:monospace; color:var(--chalk-cyan); font-size:0.76rem; text-align:center; margin:2px 0;">
-              HSO<sub>3</sub>⁻ ⇌ SO<sub>3</sub><sup>2-</sup> ＋ H⁺ , <i>K</i><sub>a2</sub> ＝ <span class="cloze" style="font-weight:bold;">10⁻⁸</span>
+            • <b>核心簡化技巧（考題大招）</b>：因 <span style="color:var(--chalk-yellow); font-weight:bold;"><i>K</i><sub>a1</sub> ≫ <i>K</i><sub>a2</sub></span>（相差 10⁶ 倍以上），第 2 段產生的氫離子可完全忽略！<br>
+            • <b>計算方式</b>：直接將其<b>視為一元弱酸</b>代入 <i>K</i><sub>a1</sub>：
+            <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-green); margin:3px 0; font-family:monospace; text-align:left; padding:6px 12px;">
+              [H⁺]＝ √(c · K<sub>a1</sub>)<br>
+              　   ＝ √(1 × 10⁻²)<br>
+              　   ＝ 0.1 M
             </div>
+            💡 <b>展哥口訣</b>：<i>K</i><sub>a1</sub> 遠大於 <i>K</i><sub>a2</sub> 時，多元弱酸直接視為一元酸計算！
           </div>
         </div>
 
@@ -743,26 +748,6 @@
           </div>
         </div>
 
-        <!-- 考題大招 -->
-        <div class="reaction-box" style="border-left: 3px solid var(--chalk-green); letter-spacing:-0.3px;">
-          <div class="sub-head" style="color:var(--chalk-green);">
-            🎯 考題大招：1 M 亞硫酸的 [H⁺]？
-          </div>
-          <div style="font-size:0.8rem; line-height:1.55;">
-            • <b>核心簡化技巧</b>：因 <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;"><i>K</i><sub>a1</sub> ≫ <i>K</i><sub>a2</sub></span>（相差 10⁶ 倍以上），第 2 段產生的氫離子可完全忽略！<br>
-            • <b>計算方式</b>：直接將其<b>視為一元弱酸</b>代入 <i>K</i><sub>a1</sub>：
-            <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-green); margin:3px 0; font-family:monospace; text-align:left; padding:6px 12px;">
-              [H⁺]＝ √(c · K<sub>a1</sub>)<br>
-              　   ＝ √(1 × 10⁻²)<br>
-              　   ＝ 0.1 M
-            </div>
-          </div>
-        </div>
-
-        <!-- 純粹的展哥口訣 -->
-        <div class="note-pill" style="display:block; text-align:center;">
-          💡 展哥口訣：<i>K</i><sub>a1</sub> 遠大於 <i>K</i><sub>a2</sub> 時，多元弱酸直接視為一元酸計算！
-        </div>
       </div>
 
     </div>
